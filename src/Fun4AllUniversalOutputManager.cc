@@ -84,11 +84,16 @@ int Fun4AllUniversalOutputManager::Write(PHCompositeNode* startNode) {
         }
     }
 
-	RunID =  m_evt->get_run_id(); 
+	//using SQEvent
+	RunID =  m_evt->get_run_id(); // SQRun class can be used here 
 	SpillID= m_evt->get_spill_id();
-
-
+	EventID= m_evt->get_event_id();
+	 //using SRawEvent
+	TurnID = m_sraw->getTurnID ();
 	cout << "RUN ID"<< m_sraw->getRunID() <<endl;
+	for(int i = -16; i < 16; ++i) cout << "intensity: "<< m_sraw->getIntensity(i) <<endl;
+	cout << "-------------"<<endl;
+
 	
      if (m_hit_vec) {
             for (int ihit = 0; ihit < m_hit_vec->size(); ++ihit) {
