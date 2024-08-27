@@ -1,0 +1,2878 @@
+CONDOR_DIR_INPUT is initiallized as ./input
+CONDOR_DIR_OUTPUT is initiallized as ./out
+hello, grid.
+HOST = spinquestgpvm01.fnal.gov
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1
+Fun4Sim.C
+disp_geom.C
+phpythia8_DY.cfg
+phpythia8_Jpsi.cfg
+phpythia8_Jpsi_direct.cfg
+phpythia8_psip.cfg
+run3_sim.opts
+run6_sim.opts
+run7_sim.opts
+total 7.0K
+-rw-r--r-- 1 mhossain 500  13K Aug 18 23:50 Fun4Sim.C
+-rw-r--r-- 1 mhossain 500  449 Aug 18 23:50 disp_geom.C
+-rwxr-xr-x 1 mhossain 500 1.3K Aug 18 23:50 gridrun.sh
+drwxr-xr-x 2 mhossain 500    3 Aug 19 01:15 input
+-rw-r--r-- 1 mhossain 500  346 Aug 19 01:15 log_gridrun.txt
+drwxr-xr-t 2 mhossain 500    3 Aug 19 01:15 out
+-rw-r--r-- 1 mhossain 500  114 Aug 19 01:15 out.txt
+-rw-r--r-- 1 mhossain 500  876 Aug 18 23:50 phpythia8_DY.cfg
+-rw-r--r-- 1 mhossain 500 1.4K Aug 18 23:50 phpythia8_Jpsi.cfg
+-rw-r--r-- 1 mhossain 500 1.4K Aug 18 23:50 phpythia8_Jpsi_direct.cfg
+-rw-r--r-- 1 mhossain 500 1.6K Aug 18 23:50 phpythia8_psip.cfg
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run3_sim.opts
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run6_sim.opts
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run7_sim.opts
+SETUP = /exp/seaquest/app/software/osg/software/e1039/this-e1039.sh
+LD_LIBRARY_PATH=/exp/seaquest/app/software/osg/software/e1039/core/pr.145/lib:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib64:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib64:/exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.30/04                        https://root.cern |
+  | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxx8664gcc on Aug 16 2024, 23:59:19                 |
+  | From heads/master@tags/v6-30-04                                  |
+  | With c++ (GCC) 11.4.1 20231218 (Red Hat 11.4.1-3)                |
+  | Try '.help'/'.?', '.demo', '.license', '.credits', '.quit'/'.q'  |
+   ------------------------------------------------------------------
+
+
+Processing Fun4Sim.C(500)...
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:17:1: fatal error: 'libana_simple_tree' file not found
+R__LOAD_LIBRARY(libana_simple_tree)
+^
+/exp/seaquest/app/software/osg/software/e1039/share/20240816/root/include/Rtypes.h:475:35: note: expanded from macro 'R__LOAD_LIBRARY'
+# define R__LOAD_LIBRARY(LIBRARY) _R_PragmaStr(cling load ( #LIBRARY ))
+                                  ^
+/exp/seaquest/app/software/osg/software/e1039/share/20240816/root/include/Rtypes.h:474:26: note: expanded from macro '_R_PragmaStr'
+# define _R_PragmaStr(x) _Pragma(#x)
+                         ^
+<scratch space>:130:36: note: expanded from here
+ cling load ( "libana_simple_tree" )
+                                   ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class Fun4AllServer with content:
+
+#line 1 "Fun4All_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+#ifndef FUN4ALLDSTINPUTMANAGER_H__
+#define FUN4ALLDSTINPUTMANAGER_H__
+
+#include "Fun4AllInputManager.h"
+
+#include <string>
+#include <map>
+
+class PHCompositeNode;
+class PHNodeIOManager;
+class SyncObject;
+class Fun4AllDstInputManager : public Fun4AllInputManager
+{
+ public:
+   Fun4AllDstInputManager(const std::string &name = "DUMMY", const std::string &nodename = "DST", const std::string &topnodename = "TOP");
+  virtual ~Fun4AllDstInputManager();
+  int fileopen(const std::string &filenam);
+  int fileclose();
+  int run(const int nevents = 0);
+  int isOpen() {return isopen;}
+  int GetSyncObject(SyncObject **mastersync);
+  int SyncIt(const SyncObject *mastersync);
+  int BranchSelect(const std::string &branch, const int iflag);
+  int setBranches();
+  virtual int setSyncBranches(PHNodeIOManager *IManager);
+  void Print(const std::string &what = "ALL") const;
+  int PushBackEvents(const int i);
+
+ protected:
+  int ReadNextEventSyncObject();
+  int OpenNextFile();
+  int readrunttree;
+  int isopen;
+  int events_total;
+  int events_thisfile;
+  int events_skipped_during_sync;
+  const char *fname;
+  std::string RunNode;
+  std::map<const std::string, int> branchread;
+  std::string syncbranchname;
+  PHCompositeNode *dstNode;
+  PHCompositeNode *runNode;
+  PHNodeIOManager *IManager;
+  SyncObject *syncobject;
+};
+
+#endif /* __FUN4ALLDSTINPUTMANAGER_H__ */
+#ifndef __FUN4ALLDSTOUTPUTMANAGER_H__
+#define __FUN4ALLDSTOUTPUTMANAGER_H__
+
+
+#include "Fun4AllOutputManager.h"
+#include <string>
+#include <vector>
+
+class PHNodeIOManager;
+class PHCompositeNode;
+
+class Fun4AllDstOutputManager: public Fun4AllOutputManager
+{
+ public:
+
+  Fun4AllDstOutputManager(const std::string &myname = "DSTOUT" , const std::string &filename = "dstout.root");
+  virtual ~Fun4AllDstOutputManager();
+
+  int AddNode(const std::string  &nodename);
+  int StripNode(const std::string  &nodename);
+  int outfileopen(const std::string &fname);
+  int RemoveNode(const std::string &nodename);
+
+  void Print(const std::string &what = "ALL") const;
+
+  virtual int Write(PHCompositeNode *startNode);
+  virtual int WriteNode(PHCompositeNode *thisNode);
+
+  void EnableRealTimeSave();
+
+ protected:
+  std::vector <std::string> savenodes;
+  std::vector <std::string> stripnodes;
+  PHNodeIOManager *dstOut;
+};
+
+#endif /* __FUN4ALLDSTOUTPUTMANAGER_H__ */
+#ifndef __FUN4ALLDUMMYINPUTMANAGER_H__
+#define __FUN4ALLDUMMYINPUTMANAGER_H__
+
+#include "Fun4AllInputManager.h"
+#include "Fun4AllReturnCodes.h"
+
+class PHCompositeNode;
+class SubsysReco;
+class SyncObject;
+
+class Fun4AllDummyInputManager: public Fun4AllInputManager
+{
+ public:
+
+  Fun4AllDummyInputManager(const std::string &name = "DUMMY", const std::string &nodename = "DST");
+  virtual ~Fun4AllDummyInputManager() {}
+  int fileopen(const std::string& /*filename*/) {return 0;}
+  int fileclose() {return 0;}
+  int isOpen() {return 1;}
+  int run(const int /*nevents=0*/);
+  int GetSyncObject(SyncObject** /*mastersync*/) {return Fun4AllReturnCodes::SYNC_NOOBJECT;}
+  int SyncIt(const SyncObject* /*mastersync*/) {return Fun4AllReturnCodes::SYNC_OK;}
+  void setSyncManager(Fun4AllSyncManager *master);
+  int PushBackEvents(const int /*nevt*/) {return 0;}
+
+ protected:
+
+  int numevents;
+};
+
+#endif /* __FUN4ALLDUMMYINPUTMANAGER_H__ */
+#ifndef __FUN4ALLHISTOMANAGER_H
+#define __FUN4ALLHISTOMANAGER_H
+
+#include "Fun4AllBase.h"
+#include <iostream>
+#include <map>
+#include <string>
+
+class TNamed;
+
+class Fun4AllHistoManager: public Fun4AllBase
+{
+ public:
+  Fun4AllHistoManager (const std::string &name);
+  virtual ~Fun4AllHistoManager();
+
+  void Print(const std::string &what = "ALL") const;
+  bool registerHisto(const std::string &hname, TNamed *h1d, const int replace = 0);
+  bool registerHisto(TNamed *h1d, const int replace = 0);
+  template <typename T> T* makeHisto(T* t) {
+    if (not registerHisto(t)) {
+      delete t;
+      t = NULL;
+    }
+    return t;
+  }
+  int isHistoRegistered(const std::string &name) const;
+  TNamed *getHisto(const std::string &hname) const;
+  TNamed *getHisto(const unsigned int ihisto) const;
+  const char *getHistoName(const unsigned int ihisto) const;
+  unsigned int nHistos() const {return Histo.size();}
+  void Reset();
+  int dumpHistos(const std::string &filename = "", const std::string &openmode="RECREATE");
+  void setOutfileName(const std::string &filename) {outfilename = filename;}
+
+ private:
+  std::string outfilename;
+  std::map<const std::string, TNamed*> Histo;
+};
+
+#endif /* __FUN4ALLHISTOMANAGER_H */
+#ifndef FUN4ALLINPUTMANAGER_H__
+#define FUN4ALLINPUTMANAGER_H__
+
+#include "Fun4AllBase.h"
+#include "Fun4AllReturnCodes.h"
+
+#include <list>
+#include <string>
+#include <vector>
+
+class PHCompositeNode;
+class SubsysReco;
+class SyncObject;
+class Fun4AllSyncManager;
+
+class Fun4AllInputManager : public Fun4AllBase
+{
+ public:
+  virtual ~Fun4AllInputManager();
+  virtual int fileopen(const std::string & /*filename*/) { return -1; }
+  virtual int fileclose() { return -1; }
+  virtual int isOpen() { return 0; }
+  virtual int run(const int /*nevents=0*/) { return -1; }
+  virtual int ReadInRunNode(PHCompositeNode * /*RunNode*/) { return -1; }
+  virtual std::string Filename() { return filename; }
+  virtual int GetSyncObject(SyncObject ** /*mastersync*/) { return 0; }
+  virtual int SyncIt(const SyncObject * /*mastersync*/) { return Fun4AllReturnCodes::SYNC_FAIL; }
+  virtual int BranchSelect(const std::string & /*branch*/, const int /*iflag*/) { return -1; }
+  virtual int setBranches() { return -1; }
+  virtual void Print(const std::string &what = "ALL") const;
+  virtual int PushBackEvents(const int /*nevt*/) { return -1; }
+  // so people can use the skip they are used to instead of PushBackEvents
+  // with negative arg
+  virtual int skip(const int nevt) { return PushBackEvents(-nevt); }
+  virtual int NoSyncPushBackEvents(const int /*nevt*/) { return -1; }
+  int AddFile(const std::string &filename);
+  int AddListFile(const std::string &filename, const int do_it = 0);
+  int registerSubsystem(SubsysReco *subsystem);
+  virtual int RejectEvent();
+  void Repeat(const int i = -1) { repeat = i; }
+  virtual void setSyncManager(Fun4AllSyncManager *master) { mySyncManager = master; }
+  int ResetFileList();
+  virtual int ResetEvent() { return 0; }
+  virtual void SetRunNumber(const int runno) { myrunnumber = runno; }
+  virtual int RunNumber() const { return myrunnumber; }
+  void AddToFileOpened(const std::string &filename) { filelist_opened.push_back(filename); }
+  const std::list<std::string> GetFileList() const { return filelist_copy; }
+  const std::list<std::string> GetFileOpenedList() const { return filelist_opened; }
+ protected:
+  Fun4AllInputManager(const std::string &name = "DUMMY", const std::string &nodename = "DST", const std::string &topnodename = "TOP");
+  std::vector<SubsysReco *> Subsystems;
+  std::string InputNode;
+  std::string filename;
+  std::string topNodeName;
+  std::list<std::string> filelist;
+  std::list<std::string> filelist_copy;
+  std::list<std::string> filelist_opened;  // all files which were opened during running
+  Fun4AllSyncManager *mySyncManager;
+  int repeat;
+  int myrunnumber;
+  int initrun;
+};
+
+#endif /* __FUN4ALLINPUTMANAGER_H__ */
+// This Master manages the reading of the Input.
+// In principle all of this could be done in the Fun4AllServer 
+// but this is simpler to develop and test while Fun4All is allready in use.
+
+#ifndef FUN4ALLSYNCMANAGER_H__
+#define FUN4ALLSYNCMANAGER_H__
+
+#include "Fun4AllBase.h"
+
+#include <set>
+#include <vector>
+
+class Fun4AllInputManager;
+class SyncObject;
+
+class Fun4AllSyncManager: public Fun4AllBase
+{
+ public:
+  Fun4AllSyncManager(const std::string &name="SYNCMANAGERNONAME");
+  virtual ~Fun4AllSyncManager();
+  int registerInputManager(Fun4AllInputManager *InManager);
+  Fun4AllInputManager *getInputManager(const std::string &name);
+
+  //! run n events (0 means up to end of file
+  int run(const int nevnts = 0);
+  
+  /*! 
+    \brief skip n events (0 means up to the end of file). 
+    Skip means read, don't process.
+  */
+  int skip(const int nevnts = 0);
+
+  int fileopen(const std::string &managername = "NONE", const std::string &filename = "NONE");
+  int fileclose(const std::string &managername = "NONE");
+  int CurrentRun() {return currentrun;}
+  void CurrentRun(const int ival) {currentrun = ival;}
+  void CurrentEvent(const int evt);
+  void Print(const std::string &what = "ALL") const;
+  void SegmentNumber(const int iseg) {prdf_segment = iseg;}
+  int SegmentNumber() const {return prdf_segment;}
+  int BranchSelect(const std::string &managername, const std::string &branch, int iflag);
+  int BranchSelect(const std::string &branch, const int iflag);
+  int setBranches(const std::string &managername);
+  int setBranches();
+  void TotalEvents(const int i) {events_total = i;}
+  int  TotalEvents() const {return events_total;}
+  void PrdfEvents(const int i) {prdf_events = i;}
+  int PrdfEvents() const {return prdf_events;}
+  void GetInputFullFileList(std::vector<std::string> &fnames) const;
+  void Repeat(const int i=-1) {repeat = i;}
+  void PushBackInputMgrsEvents(const int i);
+  int ResetEvent();
+  const std::vector<Fun4AllInputManager *> GetInputManagers() const {return InManager;}
+
+  private:
+  int CheckSync(unsigned i);
+  int prdf_segment;
+  int prdf_events;
+  int events_total;
+  int currentrun;
+  int currentevent;
+  int repeat;
+  SyncObject *MasterSync;
+  std::vector<Fun4AllInputManager *> InManager;
+  std::vector<int> iretInManager;
+};
+
+#endif /* FUN4ALLSYNCMANAGER_H__ */
+#ifndef __FUN4ALLNOSYNCDSTINPUTMANAGER_H__
+#define __FUN4ALLNOSYNCDSTINPUTMANAGER_H__
+
+#include "Fun4AllDstInputManager.h"
+#include "Fun4AllReturnCodes.h"
+
+class PHCompositeNode;
+class PHNodeIOManager;
+class SyncObject;
+
+class Fun4AllNoSyncDstInputManager : public Fun4AllDstInputManager
+{
+ public:
+
+  Fun4AllNoSyncDstInputManager(const std::string &name = "DUMMY", const std::string &nodename = "DST", const std::string &topnodename = "TOP");
+  
+  virtual ~Fun4AllNoSyncDstInputManager() {}
+  
+  // Effectivly turn off the synchronization checking
+  //
+  int SyncIt(const SyncObject* /*mastersync*/) {return Fun4AllReturnCodes::SYNC_OK;}
+  int GetSyncObject(SyncObject** /*mastersync*/) {return Fun4AllReturnCodes::SYNC_NOOBJECT;}
+  int NoSyncPushBackEvents(const int nevt) {return PushBackEvents(nevt);}
+  // no sync object we don't need to enable the sync variables
+  int setSyncBranches(PHNodeIOManager* /*IManager*/) {return 0;}
+
+  // turn off reading of the runwise TTree to make run mixing for embedding possible
+  int NoRunTTree();
+
+};
+
+#endif /* __FUN4ALLNOSYNCDSTINPUTMANAGER_H__ */
+#ifndef FUN4ALLOUTPUTMANAGER_H__
+#define FUN4ALLOUTPUTMANAGER_H__
+
+#include "Fun4AllBase.h"
+
+#include <vector>
+#include <string>
+
+class PHCompositeNode;
+
+class Fun4AllOutputManager: public Fun4AllBase
+{
+ public:
+
+  //! destructor
+  virtual ~Fun4AllOutputManager() 
+  {}
+
+  //! print method (dump event selector)
+  virtual void Print(const std::string &what = "ALL") const;
+
+  //! add a node in outputmanager
+  virtual int AddNode(const std::string& /*nodename*/)
+  { return 0; }
+
+  //! not write a node in outputmanager
+  virtual int StripNode(const std::string& /*nodename*/)
+  { return 0; }
+
+  /*! \brief
+    add an event selector to the outputmanager.
+    event will get written only if all event selectors process_event method
+    return EVENT_OK
+  */
+  virtual int AddEventSelector(const std::string &recomodule);
+
+  //! opens output file
+  virtual int outfileopen(const std::string& /*nodename*/)
+  { return 0; }
+
+  //! removes a node from outputmanager
+  virtual int RemoveNode(const std::string& /*nodename*/)
+  { return 0; }
+
+  //! Common method, called before calling virtual Write
+  int WriteGeneric(PHCompositeNode *startNode);
+
+  //! write starting from given node
+  virtual int Write(PHCompositeNode* /*startNode*/)
+  { return 0; }
+
+  //! write specified node
+  virtual int WriteNode(PHCompositeNode* /*thisNode*/)
+  { return 0; }
+  
+  //! retrieves pointer to vector of event selector module names
+  virtual std::vector <std::string> *EventSelector() 
+  {return &EventSelectors;}
+  
+  //! retrieves pointer to vector of event selector module ids
+  virtual std::vector <unsigned> *RecoModuleIndex()
+  {return &recomoduleindex;}
+  
+  //! decides if event is to be written or not
+  virtual int DoNotWriteEvent(std::vector <int> *retcodes) const;
+
+  //! get number of Events
+  virtual size_t EventsWritten() const {return nEvents;}
+
+  //! get output file name
+  virtual std::string OutFileName() const {return outfilename;}
+
+ protected:
+
+  /*! 
+    constructor.
+    is protected since we do not want the  class to be created in root macros
+  */
+  Fun4AllOutputManager(const std::string &myname );
+
+  //! Number of Events
+  size_t nEvents;
+  
+  //! vector of event selectors modules
+  std::vector <std::string> EventSelectors;
+
+  //! vector of associated module indexes
+  std::vector <unsigned> recomoduleindex;
+
+  //! output file name
+  std::string outfilename;
+};
+
+#endif /* __FUN4ALLOUTPUTMANAGER_H__ */
+#ifndef FUN4ALLSERVER_H
+#define FUN4ALLSERVER_H
+
+#include "Fun4AllBase.h"
+#include "Fun4AllHistoManager.h"
+
+#include <phool/PHTimer2.h>
+
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+
+class Fun4AllInputManager;
+class Fun4AllSyncManager;
+class Fun4AllOutputManager;
+class PHCompositeNode;
+class PHTimeStamp;
+class SubsysReco;
+class TDirectory;
+class TH1;
+class TNamed;
+
+class Fun4AllServer : public Fun4AllBase
+{
+ public:
+  static Fun4AllServer *instance();
+  virtual ~Fun4AllServer();
+
+  virtual bool registerHisto(const char *hname, TNamed *h1d, const int replace = 0);
+  virtual bool registerHisto(TNamed *h1d, const int replace = 0);
+  template <typename T>
+  T *makeHisto(T *t)
+  {
+    return ServerHistoManager->makeHisto(t);
+  }
+  virtual int isHistoRegistered(const std::string &name) const;
+
+  int registerSubsystem(SubsysReco *subsystem, const std::string &topnodename = "TOP");
+  int unregisterSubsystem(SubsysReco *subsystem);
+  SubsysReco *getSubsysReco(const std::string &name);
+  int registerOutputManager(Fun4AllOutputManager *manager);
+  Fun4AllOutputManager *getOutputManager(const std::string &name);
+  int registerHistoManager(Fun4AllHistoManager *manager);
+  Fun4AllHistoManager *getHistoManager(const std::string &name);
+  TNamed *getHisto(const std::string &hname) const;
+  TNamed *getHisto(const unsigned int ihisto) const;
+  const char *getHistoName(const unsigned int ihisto) const;
+  virtual void Print(const std::string &what = "ALL") const;
+
+  void InitAll();
+  int BeginRunTimeStamp(PHTimeStamp &TimeStp);
+  int dumpHistos(const std::string &filename = "", const std::string &openmode = "RECREATE");
+  int process_event(PHCompositeNode *topNode);
+  int Reset();
+  virtual int BeginRun(const int runno);
+  virtual int EndRun(const int runno = 0);
+  virtual int End();
+  PHCompositeNode *topNode() const { return TopNode; }
+  PHCompositeNode *topNode(const std::string &name);
+  int outfileclose();
+  virtual int process_event();
+  PHCompositeNode *getNode(const char *name, const char *topnodename = "TOP");
+  int AddTopNode(const std::string &name);
+  int MakeNodesTransient(PHCompositeNode *startNode);
+  int MakeNodesPersistent(PHCompositeNode *startNode);
+
+  int AddComplaint(const std::string &complaint, const std::string &remedy);
+
+  // Interface to the default Input Master
+  int registerInputManager(Fun4AllInputManager *InManager);
+  Fun4AllInputManager *getInputManager(const char *name);
+  int PrdfEvents() const;
+  int DstEvents() const;
+
+  //! run n events (0 means up to end of file)
+  int run(const int nevnts = 0, const bool require_nevents = false);
+
+  /*! 
+    \brief skip n events (0 means up to the end of file). 
+    Skip means read, don't process.
+  */
+  int skip(const int nevnts = 0);
+
+  int fileopen(const char *managername = "NONE", const char *filename = "NONE");
+  int fileclose(const std::string &managername = "");
+  int SegmentNumber();
+  int ResetNodeTree();
+  int BranchSelect(const char *managername, const char *branch, int iflag);
+  int BranchSelect(const char *branch, int iflag);
+  int setBranches(const char *managername);
+  int setBranches();
+  virtual int DisconnectDB();
+  virtual void identify(std::ostream &out = std::cout) const;
+  unsigned GetTopNodes(std::vector<std::string> &names) const;
+  void GetInputFullFileList(std::vector<std::string> &fnames) const;
+  void GetOutputManagerList(std::vector<std::string> &names) const;
+  void GetModuleList(std::vector<std::string> &names) const;
+  Fun4AllSyncManager *getSyncManager(const std::string &name = "DefaultSyncManager");
+  int registerSyncManager(Fun4AllSyncManager *newmaster);
+  int retcodestats(const int iret) { return retcodesmap[iret]; }
+  void EventNumber(const int evtno) { eventnumber = evtno; }
+  void NodeIdentify(const std::string &name);
+  void KeepDBConnection(const int i = 1) { keep_db_connected = i; }
+
+  void PrintTimer(const std::string &name = "");
+  void ReadSpillTimer(double& time_subsys, double& time_output);
+  void ResetSpillTimer();
+
+  int getRun() const { return runnumber; }
+  int setRun(const int runno);
+
+ protected:
+  Fun4AllServer(const std::string &name = "Fun4AllServer");
+  int InitNodeTree(PHCompositeNode *topNode);
+  int CountOutNodes(PHCompositeNode *startNode);
+  int CountOutNodesRecursive(PHCompositeNode *startNode, const int icount);
+  int UpdateEventSelector(Fun4AllOutputManager *manager);
+  int unregisterSubsystemsNow();
+  static Fun4AllServer *__instance;
+  int OutNodeCount;
+  int bortime_override;
+  int ScreamEveryEvent;
+  int unregistersubsystem;
+  int runnumber;
+  int eventnumber;
+  std::vector<std::string> ComplaintList;
+  PHCompositeNode *TopNode;
+  std::vector<std::pair<SubsysReco *, PHCompositeNode *> > Subsystems;
+  std::vector<std::pair<SubsysReco *, PHCompositeNode *> > DeleteSubsystems;
+  std::vector<int> RetCodes;
+  std::vector<Fun4AllOutputManager *> OutputManager;
+  std::vector<TDirectory *> TDirCollection;
+  Fun4AllHistoManager *ServerHistoManager;
+  std::vector<Fun4AllHistoManager *> HistoManager;
+  std::map<std::string, PHCompositeNode *> topnodemap;
+  PHTimeStamp *beginruntimestamp;
+  std::string default_Tdirectory;
+  Fun4AllSyncManager *defaultSyncManager;
+  std::vector<Fun4AllSyncManager *> SyncManagers;
+  std::map<int, int> retcodesmap;
+
+  std::map<const std::string, PHTimer2> timer_map;
+  PHTimer2* timer_sp_subsys; ///< Measure the time used by SubsysReco in process_event().
+  PHTimer2* timer_sp_output; ///< Measure the time used by OutputManager in process_event().
+
+  TH1 *FrameWorkVars;
+  int keep_db_connected;
+};
+
+#endif /* __FUN4ALLSERVER_H */
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:81:23: error: incomplete type 'Fun4AllServer' named in nested name specifier
+  Fun4AllServer *se = Fun4AllServer::instance();
+                      ^~~~~~~~~~~~~~~
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:82:5: error: member access into incomplete type 'Fun4AllServer'
+  se->Verbosity(0);
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class PHPythia8 with content:
+
+#line 1 "PHPythia8_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+#ifndef __PHPYTHIA8_H__
+#define __PHPYTHIA8_H__
+
+#include <fun4all/SubsysReco.h>
+#include <phhepmc/PHHepMCGenHelper.h>
+
+#ifndef __CINT__
+#include <Pythia8/Pythia.h>
+#endif
+
+#ifndef __CINT__
+#include <gsl/gsl_rng.h>
+#endif
+
+#include <iostream>
+#include <string>
+
+class PHCompositeNode;
+class PHHepMCGenEvent;
+class PHHepMCFilter;
+class PHGenIntegral;
+class PHPy8GenTrigger;
+
+namespace HepMC
+{
+  class GenEvent;
+  class Pythia8ToHepMC;
+};
+
+namespace Pythia8
+{
+  class Pythia;
+};
+
+class PHPythia8 : public SubsysReco
+{
+ public:
+  PHPythia8(const std::string &name = "PHPythia8");
+  virtual ~PHPythia8();
+
+  int Init(PHCompositeNode *topNode);
+  int process_event(PHCompositeNode *topNode);
+  int ResetEvent(PHCompositeNode *topNode);
+  int End(PHCompositeNode *topNode);
+
+  void set_config_file(const char *cfg_file)
+  {
+    if (cfg_file) _configFile = cfg_file;
+  }
+
+  void print_config() const;
+
+  /// set event selection criteria
+  void register_trigger(PHPy8GenTrigger *theTrigger);
+  void set_trigger_OR()
+  {
+    _triggersOR = true;
+    _triggersAND = false;
+  }  // default true
+  void set_trigger_AND()
+  {
+    _triggersAND = true;
+    _triggersOR = false;
+  }
+
+  /// pass commands directly to PYTHIA8
+  void process_string(std::string s) { _commands.push_back(s); }
+  void beam_vertex_parameters(double beamX,
+                              double beamY,
+                              double beamZ,
+                              double beamXsigma,
+                              double beamYsigma,
+                              double beamZsigma)
+  {
+    set_vertex_distribution_mean(beamX, beamY, beamZ, 0);
+    set_vertex_distribution_width(beamXsigma, beamYsigma, beamZsigma, 0);
+  }
+
+  //! toss a new vertex according to a Uniform or Gaus distribution
+  void set_vertex_distribution_function(PHHepMCGenHelper::VTXFUNC x, PHHepMCGenHelper::VTXFUNC y, PHHepMCGenHelper::VTXFUNC z, PHHepMCGenHelper::VTXFUNC t)
+  {
+    hepmc_helper.set_vertex_distribution_function(x, y, z, t);
+  }
+
+  //! set the mean value of the vertex distribution, use PHENIX units of cm, ns
+  void set_vertex_distribution_mean(const double x, const double y, const double z, const double t)
+  {
+    hepmc_helper.set_vertex_distribution_mean(x, y, z, t);
+  }
+
+  //! set the width of the vertex distribution function about the mean, use PHENIX units of cm, ns
+  void set_vertex_distribution_width(const double x, const double y, const double z, const double t)
+  {
+    hepmc_helper.set_vertex_distribution_width(x, y, z, t);
+  }
+  //
+  //! reuse vertex from another PHHepMCGenEvent with embedding_id = src_embedding_id Additional smearing and shift possible with set_vertex_distribution_*()
+  void set_reuse_vertex(int src_embedding_id)
+  {
+    hepmc_helper.set_reuse_vertex(src_embedding_id);
+  }
+
+  //! add interface for using legacy gen vertex; Abi
+  void enableLegacyVtxGen()
+  {
+    _legacy_vertexgenerator=true;
+    hepmc_helper.enableLegacyVtxGen();
+  }
+  double get_LegacyPARatio()
+  {
+    return hepmc_helper.get_LegacyPARatio();
+  }
+
+
+  //! embedding ID for the event
+  //! positive ID is the embedded event of interest, e.g. jetty event from pythia
+  //! negative IDs are backgrounds, .e.g out of time pile up collisions
+  //! Usually, ID = 0 means the primary Au+Au collision background
+  int get_embedding_id() const { return hepmc_helper.get_embedding_id(); }
+  //
+  //! embedding ID for the event
+  //! positive ID is the embedded event of interest, e.g. jetty event from pythia
+  //! negative IDs are backgrounds, .e.g out of time pile up collisions
+  //! Usually, ID = 0 means the primary Au+Au collision background
+  void set_embedding_id(int id) { hepmc_helper.set_embedding_id(id); }
+  //! whether to store the integrated luminosity and other event statistics to the TOP/RUN/PHGenIntegral node
+  void save_integrated_luminosity(const bool b) { _save_integrated_luminosity = b; }
+ private:
+  int read_config(const char *cfg_file = 0);
+  int read_config_hybrid (const char *cfg_file1 = 0, const char *cfg_file2 =0);
+  int create_node_tree(PHCompositeNode *topNode);
+  double percent_diff(const double a, const double b) { return abs((a - b) / a); }
+  int _eventcount;
+
+  // event selection
+  std::vector<PHPy8GenTrigger *> _registeredTriggers;
+  bool _triggersOR;
+  bool _triggersAND;
+
+  // PYTHIA
+#ifndef __CINT__
+  Pythia8::Pythia *_pythia;
+  Pythia8::Pythia *ppGen;    //!< Pythia pp generator
+  Pythia8::Pythia *pnGen;    //!< Pythia pn generator
+#endif
+
+  std::string _configFile;
+  std::vector<std::string> _commands;
+  
+
+  // HepMC
+  HepMC::Pythia8ToHepMC *_pythiaToHepMC;
+
+  //! helper for insert HepMC event to DST node and add vertex smearing
+  PHHepMCGenHelper hepmc_helper;
+
+  //! whether to store the integrated luminosity and other event statistics to the TOP/RUN/PHGenIntegral node
+  bool _save_integrated_luminosity;
+
+  //! pointer to data node saving the integrated luminosity
+  PHGenIntegral *_integral_node;
+
+  //! legacy vtx gen flag
+  bool _legacy_vertexgenerator;
+};
+
+#endif /* __PHPYTHIA8_H__ */
+#ifndef __PHPY8GENTRIGGER_H__
+#define __PHPY8GENTRIGGER_H__
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+namespace Pythia8 {
+  class Pythia;
+};
+
+class PHPy8GenTrigger {
+
+ protected:  
+  //! constructor
+  PHPy8GenTrigger(const std::string &name = "PHPy8GenTrigger");
+
+ public:
+  virtual ~PHPy8GenTrigger();
+
+  #ifndef __CINT__
+  virtual bool Apply(Pythia8::Pythia *pythia) {
+    std::cout << "PHPy8GenTrigger::Apply - in virtual function" << std::endl;
+    return false;
+  }
+  #endif
+
+  virtual std::string GetName() { return _name; }
+  
+  std::vector<int> convertToInts(std::string s);
+
+  void Verbosity(int v) { _verbosity = v; }
+
+protected:
+  int _verbosity;  
+  
+private:
+  std::string _name;
+};
+
+#endif	
+
+#ifndef __PHPY8PARTICLETRIGGER_H__
+#define __PHPY8PARTICLETRIGGER_H__
+
+#include "PHPy8GenTrigger.h"
+#include <string>
+
+namespace Pythia8 {
+  class Pythia;
+};
+
+class PHPy8ParticleTrigger : public PHPy8GenTrigger {
+
+ public:
+
+  PHPy8ParticleTrigger(const std::string &name = "PHPy8ParticleTrigger");
+  virtual ~PHPy8ParticleTrigger();
+
+  #ifndef __CINT__
+  bool Apply(Pythia8::Pythia *pythia);
+  #endif
+
+  void AddParticles(std::string particles);
+  void AddParticles(int particle);
+  void AddParticles(std::vector<int> particles);
+
+  void AddParents(std::string parents);
+  void AddParents(int parent);
+  void AddParents(std::vector<int> parents);
+
+  void SetPtHigh(double pt);
+  void SetPtLow(double pt);
+  void SetPtHighLow(double ptHigh, double ptLow);
+  
+  void SetPHigh(double p);
+  void SetPLow(double p);
+  void SetPHighLow(double pHigh, double pLow);
+
+  void SetEtaHigh(double eta);
+  void SetEtaLow(double eta);
+  void SetEtaHighLow(double etaHigh, double etaLow);
+
+  void SetAbsEtaHigh(double eta);
+  void SetAbsEtaLow(double eta);
+  void SetAbsEtaHighLow(double etaHigh, double etaLow);
+
+  void SetPxHigh(double pz);
+  void SetPxLow(double pz);
+  void SetPxHighLow(double pzHigh, double pzLow);
+
+  void SetPyHigh(double pz);
+  void SetPyLow(double pz);
+  void SetPyHighLow(double pzHigh, double pzLow);
+
+  void SetPzHigh(double pz);
+  void SetPzLow(double pz);
+  void SetPzHighLow(double pzHigh, double pzLow);
+
+  void PrintConfig();
+
+ private:
+
+  std::vector<int> _theParents;
+  std::vector<int> _theParticles;
+
+  double _theEtaHigh, _theEtaLow;
+  double _thePtHigh, _thePtLow;
+  double _thePHigh, _thePLow;
+  double _thePxHigh, _thePxLow;
+  double _thePyHigh, _thePyLow;
+  double _thePzHigh, _thePzLow;
+  
+  bool _doEtaHighCut, _doEtaLowCut, _doBothEtaCut;
+  bool _doAbsEtaHighCut, _doAbsEtaLowCut, _doBothAbsEtaCut;
+  bool _doPtHighCut, _doPtLowCut, _doBothPtCut;
+  bool _doPHighCut, _doPLowCut, _doBothPCut;
+  bool _doPxHighCut, _doPxLowCut, _doBothPxCut;
+  bool _doPyHighCut, _doPyLowCut, _doBothPyCut;
+  bool _doPzHighCut, _doPzLowCut, _doBothPzCut;
+};
+
+#endif	
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:87:30: error: allocation of incomplete type 'PHPythia8'
+    PHPythia8 *pythia8 = new PHPythia8();
+                             ^~~~~~~~~
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:89:12: error: member access into incomplete type 'PHPythia8'
+    pythia8->set_config_file("phpythia8_DY.cfg");
+           ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:91:27: error: member access into incomplete type 'PHPythia8'
+    if(SQ_vtx_gen) pythia8->enableLegacyVtxGen();
+                          ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:93:14: error: member access into incomplete type 'PHPythia8'
+      pythia8->set_vertex_distribution_mean(0, 0, target_coil_pos_z, 0);
+             ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:95:12: error: member access into incomplete type 'PHPythia8'
+    pythia8->set_embedding_id(1);
+           ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:96:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(pythia8);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:98:12: error: member access into incomplete type 'PHPythia8'
+    pythia8->set_trigger_AND();
+           ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class PHPy8ParticleTrigger with content:
+
+#line 1 "PHPythia8_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+#ifndef __PHPYTHIA8_H__
+#define __PHPYTHIA8_H__
+
+#include <fun4all/SubsysReco.h>
+#include <phhepmc/PHHepMCGenHelper.h>
+
+#ifndef __CINT__
+#include <Pythia8/Pythia.h>
+#endif
+
+#ifndef __CINT__
+#include <gsl/gsl_rng.h>
+#endif
+
+#include <iostream>
+#include <string>
+
+class PHCompositeNode;
+class PHHepMCGenEvent;
+class PHHepMCFilter;
+class PHGenIntegral;
+class PHPy8GenTrigger;
+
+namespace HepMC
+{
+  class GenEvent;
+  class Pythia8ToHepMC;
+};
+
+namespace Pythia8
+{
+  class Pythia;
+};
+
+class PHPythia8 : public SubsysReco
+{
+ public:
+  PHPythia8(const std::string &name = "PHPythia8");
+  virtual ~PHPythia8();
+
+  int Init(PHCompositeNode *topNode);
+  int process_event(PHCompositeNode *topNode);
+  int ResetEvent(PHCompositeNode *topNode);
+  int End(PHCompositeNode *topNode);
+
+  void set_config_file(const char *cfg_file)
+  {
+    if (cfg_file) _configFile = cfg_file;
+  }
+
+  void print_config() const;
+
+  /// set event selection criteria
+  void register_trigger(PHPy8GenTrigger *theTrigger);
+  void set_trigger_OR()
+  {
+    _triggersOR = true;
+    _triggersAND = false;
+  }  // default true
+  void set_trigger_AND()
+  {
+    _triggersAND = true;
+    _triggersOR = false;
+  }
+
+  /// pass commands directly to PYTHIA8
+  void process_string(std::string s) { _commands.push_back(s); }
+  void beam_vertex_parameters(double beamX,
+                              double beamY,
+                              double beamZ,
+                              double beamXsigma,
+                              double beamYsigma,
+                              double beamZsigma)
+  {
+    set_vertex_distribution_mean(beamX, beamY, beamZ, 0);
+    set_vertex_distribution_width(beamXsigma, beamYsigma, beamZsigma, 0);
+  }
+
+  //! toss a new vertex according to a Uniform or Gaus distribution
+  void set_vertex_distribution_function(PHHepMCGenHelper::VTXFUNC x, PHHepMCGenHelper::VTXFUNC y, PHHepMCGenHelper::VTXFUNC z, PHHepMCGenHelper::VTXFUNC t)
+  {
+    hepmc_helper.set_vertex_distribution_function(x, y, z, t);
+  }
+
+  //! set the mean value of the vertex distribution, use PHENIX units of cm, ns
+  void set_vertex_distribution_mean(const double x, const double y, const double z, const double t)
+  {
+    hepmc_helper.set_vertex_distribution_mean(x, y, z, t);
+  }
+
+  //! set the width of the vertex distribution function about the mean, use PHENIX units of cm, ns
+  void set_vertex_distribution_width(const double x, const double y, const double z, const double t)
+  {
+    hepmc_helper.set_vertex_distribution_width(x, y, z, t);
+  }
+  //
+  //! reuse vertex from another PHHepMCGenEvent with embedding_id = src_embedding_id Additional smearing and shift possible with set_vertex_distribution_*()
+  void set_reuse_vertex(int src_embedding_id)
+  {
+    hepmc_helper.set_reuse_vertex(src_embedding_id);
+  }
+
+  //! add interface for using legacy gen vertex; Abi
+  void enableLegacyVtxGen()
+  {
+    _legacy_vertexgenerator=true;
+    hepmc_helper.enableLegacyVtxGen();
+  }
+  double get_LegacyPARatio()
+  {
+    return hepmc_helper.get_LegacyPARatio();
+  }
+
+
+  //! embedding ID for the event
+  //! positive ID is the embedded event of interest, e.g. jetty event from pythia
+  //! negative IDs are backgrounds, .e.g out of time pile up collisions
+  //! Usually, ID = 0 means the primary Au+Au collision background
+  int get_embedding_id() const { return hepmc_helper.get_embedding_id(); }
+  //
+  //! embedding ID for the event
+  //! positive ID is the embedded event of interest, e.g. jetty event from pythia
+  //! negative IDs are backgrounds, .e.g out of time pile up collisions
+  //! Usually, ID = 0 means the primary Au+Au collision background
+  void set_embedding_id(int id) { hepmc_helper.set_embedding_id(id); }
+  //! whether to store the integrated luminosity and other event statistics to the TOP/RUN/PHGenIntegral node
+  void save_integrated_luminosity(const bool b) { _save_integrated_luminosity = b; }
+ private:
+  int read_config(const char *cfg_file = 0);
+  int read_config_hybrid (const char *cfg_file1 = 0, const char *cfg_file2 =0);
+  int create_node_tree(PHCompositeNode *topNode);
+  double percent_diff(const double a, const double b) { return abs((a - b) / a); }
+  int _eventcount;
+
+  // event selection
+  std::vector<PHPy8GenTrigger *> _registeredTriggers;
+  bool _triggersOR;
+  bool _triggersAND;
+
+  // PYTHIA
+#ifndef __CINT__
+  Pythia8::Pythia *_pythia;
+  Pythia8::Pythia *ppGen;    //!< Pythia pp generator
+  Pythia8::Pythia *pnGen;    //!< Pythia pn generator
+#endif
+
+  std::string _configFile;
+  std::vector<std::string> _commands;
+  
+
+  // HepMC
+  HepMC::Pythia8ToHepMC *_pythiaToHepMC;
+
+  //! helper for insert HepMC event to DST node and add vertex smearing
+  PHHepMCGenHelper hepmc_helper;
+
+  //! whether to store the integrated luminosity and other event statistics to the TOP/RUN/PHGenIntegral node
+  bool _save_integrated_luminosity;
+
+  //! pointer to data node saving the integrated luminosity
+  PHGenIntegral *_integral_node;
+
+  //! legacy vtx gen flag
+  bool _legacy_vertexgenerator;
+};
+
+#endif /* __PHPYTHIA8_H__ */
+#ifndef __PHPY8GENTRIGGER_H__
+#define __PHPY8GENTRIGGER_H__
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+namespace Pythia8 {
+  class Pythia;
+};
+
+class PHPy8GenTrigger {
+
+ protected:  
+  //! constructor
+  PHPy8GenTrigger(const std::string &name = "PHPy8GenTrigger");
+
+ public:
+  virtual ~PHPy8GenTrigger();
+
+  #ifndef __CINT__
+  virtual bool Apply(Pythia8::Pythia *pythia) {
+    std::cout << "PHPy8GenTrigger::Apply - in virtual function" << std::endl;
+    return false;
+  }
+  #endif
+
+  virtual std::string GetName() { return _name; }
+  
+  std::vector<int> convertToInts(std::string s);
+
+  void Verbosity(int v) { _verbosity = v; }
+
+protected:
+  int _verbosity;  
+  
+private:
+  std::string _name;
+};
+
+#endif	
+
+#ifndef __PHPY8PARTICLETRIGGER_H__
+#define __PHPY8PARTICLETRIGGER_H__
+
+#include "PHPy8GenTrigger.h"
+#include <string>
+
+namespace Pythia8 {
+  class Pythia;
+};
+
+class PHPy8ParticleTrigger : public PHPy8GenTrigger {
+
+ public:
+
+  PHPy8ParticleTrigger(const std::string &name = "PHPy8ParticleTrigger");
+  virtual ~PHPy8ParticleTrigger();
+
+  #ifndef __CINT__
+  bool Apply(Pythia8::Pythia *pythia);
+  #endif
+
+  void AddParticles(std::string particles);
+  void AddParticles(int particle);
+  void AddParticles(std::vector<int> particles);
+
+  void AddParents(std::string parents);
+  void AddParents(int parent);
+  void AddParents(std::vector<int> parents);
+
+  void SetPtHigh(double pt);
+  void SetPtLow(double pt);
+  void SetPtHighLow(double ptHigh, double ptLow);
+  
+  void SetPHigh(double p);
+  void SetPLow(double p);
+  void SetPHighLow(double pHigh, double pLow);
+
+  void SetEtaHigh(double eta);
+  void SetEtaLow(double eta);
+  void SetEtaHighLow(double etaHigh, double etaLow);
+
+  void SetAbsEtaHigh(double eta);
+  void SetAbsEtaLow(double eta);
+  void SetAbsEtaHighLow(double etaHigh, double etaLow);
+
+  void SetPxHigh(double pz);
+  void SetPxLow(double pz);
+  void SetPxHighLow(double pzHigh, double pzLow);
+
+  void SetPyHigh(double pz);
+  void SetPyLow(double pz);
+  void SetPyHighLow(double pzHigh, double pzLow);
+
+  void SetPzHigh(double pz);
+  void SetPzLow(double pz);
+  void SetPzHighLow(double pzHigh, double pzLow);
+
+  void PrintConfig();
+
+ private:
+
+  std::vector<int> _theParents;
+  std::vector<int> _theParticles;
+
+  double _theEtaHigh, _theEtaLow;
+  double _thePtHigh, _thePtLow;
+  double _thePHigh, _thePLow;
+  double _thePxHigh, _thePxLow;
+  double _thePyHigh, _thePyLow;
+  double _thePzHigh, _thePzLow;
+  
+  bool _doEtaHighCut, _doEtaLowCut, _doBothEtaCut;
+  bool _doAbsEtaHighCut, _doAbsEtaLowCut, _doBothAbsEtaCut;
+  bool _doPtHighCut, _doPtLowCut, _doBothPtCut;
+  bool _doPHighCut, _doPLowCut, _doBothPCut;
+  bool _doPxHighCut, _doPxLowCut, _doBothPxCut;
+  bool _doPyHighCut, _doPyLowCut, _doBothPyCut;
+  bool _doPzHighCut, _doPzLowCut, _doBothPzCut;
+};
+
+#endif	
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:100:45: error: allocation of incomplete type 'PHPy8ParticleTrigger'
+    PHPy8ParticleTrigger* trigger_mup = new PHPy8ParticleTrigger();
+                                            ^~~~~~~~~~~~~~~~~~~~
+PHPythia8_Dict dictionary forward declarations' payload:7:7: note: forward declaration of 'PHPy8ParticleTrigger'
+class PHPy8ParticleTrigger;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:101:16: error: member access into incomplete type 'PHPy8ParticleTrigger'
+    trigger_mup->AddParticles("-13");
+               ^
+PHPythia8_Dict dictionary forward declarations' payload:7:7: note: forward declaration of 'PHPy8ParticleTrigger'
+class PHPy8ParticleTrigger;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:104:16: error: member access into incomplete type 'PHPy8ParticleTrigger'
+    trigger_mup->SetPzHighLow(120, 10);
+               ^
+PHPythia8_Dict dictionary forward declarations' payload:7:7: note: forward declaration of 'PHPy8ParticleTrigger'
+class PHPy8ParticleTrigger;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:105:12: error: member access into incomplete type 'PHPythia8'
+    pythia8->register_trigger(trigger_mup);
+           ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:107:45: error: allocation of incomplete type 'PHPy8ParticleTrigger'
+    PHPy8ParticleTrigger* trigger_mum = new PHPy8ParticleTrigger();
+                                            ^~~~~~~~~~~~~~~~~~~~
+PHPythia8_Dict dictionary forward declarations' payload:7:7: note: forward declaration of 'PHPy8ParticleTrigger'
+class PHPy8ParticleTrigger;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:108:16: error: member access into incomplete type 'PHPy8ParticleTrigger'
+    trigger_mum->AddParticles("13");
+               ^
+PHPythia8_Dict dictionary forward declarations' payload:7:7: note: forward declaration of 'PHPy8ParticleTrigger'
+class PHPy8ParticleTrigger;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:111:16: error: member access into incomplete type 'PHPy8ParticleTrigger'
+    trigger_mum->SetPzHighLow(120, 10);
+               ^
+PHPythia8_Dict dictionary forward declarations' payload:7:7: note: forward declaration of 'PHPy8ParticleTrigger'
+class PHPy8ParticleTrigger;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:112:12: error: member access into incomplete type 'PHPythia8'
+    pythia8->register_trigger(trigger_mum);
+           ^
+PHPythia8_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'PHPythia8'
+class PHPythia8;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:120:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(hr);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:147:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(genp);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:172:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(genm);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class SQPrimaryParticleGen with content:
+
+#line 1 "SQPrimaryGen_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+/*====================================================================
+Author: Abinash Pun, Kun Liu
+Nov, 2019
+Goal: Import the physics generator of E906 experiment (DPSimPrimaryGeneratorAction)
+from Kun to E1039 experiment in Fun4All framework
+=========================================================================*/
+#ifndef __SQPrimaryParticleGen_H__
+#define __SQPrimaryParticleGen_H__
+
+#ifndef __CINT__
+#include <Pythia8/Pythia.h>
+#endif
+#include <LHAPDF/LHAPDF.h>
+#ifndef __CINT__
+#include <gsl/gsl_rng.h>
+#endif
+
+#include <string>
+
+#include <TGenPhaseSpace.h>
+#include <g4main/PHG4ParticleGeneratorBase.h>
+
+class PHCompositeNode;
+class PHG4ParticleGeneratorBase;
+class PHG4InEvent;
+class PHG4Particle;
+
+class PHGenIntegral;
+class SQEvent;
+class SQMCEvent;
+class SQDimuon;
+class SQDimuonVector;
+class SQPrimaryVertexGen;
+
+//==========
+/// Physics generator imported from E906 software
+/**
+ * Each event generated by this generator is given its own weight.
+ * The event weight is defined as "cross_section(xF, mass) * beam_luminosity(x, y)".
+ * You have to count up events with the event weight multiplied, namely
+ * fill events to a histogram using the event weight as the weight of added contents.
+ *
+ * This generator creates a data node of `PHGenIntegral` under the `RUN` node.
+ * The node stores the integrated luminosity etc.
+ * You can divide the weighted event count by the integrated luminosity to obtain the cross section (per bin).
+ * You can then multiply this cross section by an expected integrated luminosity (of spill, week, year, etc.) to obtain the expected count.
+ */
+class SQPrimaryParticleGen: public PHG4ParticleGeneratorBase
+{
+public:
+    SQPrimaryParticleGen(const std::string& name = "PrimaryGen");
+    virtual ~SQPrimaryParticleGen();
+
+    
+    int Init(PHCompositeNode* topNode);
+    int InitRun(PHCompositeNode* topNode);
+    int End(PHCompositeNode* topNode);
+    int process_event(PHCompositeNode* topNode);
+    //void GeneratePrimaries(G4Event* anEvent);
+
+    //!Various generators
+    //@{
+    int generateDrellYan(const TVector3& vtx, const double pARatio, double luminosity);
+    int generateJPsi(const TVector3& vtx, const double pARatio, double luminosity);
+    int generatePsip(const TVector3& vtx, const double pARatio, double luminosity);
+    // void generateDarkPhotonFromEta();
+    int generatePythia(const TVector3& vtx, const double pARatio);
+    //int generateCustomDimuon(PHCompositeNode *topNode, TVector3 vtx, const double pARatio);
+  
+    //@}
+
+    //!Dimuon phase space generator
+    bool generateDimuon(double mass, double xF);
+
+    //swith for the generators; Abi
+    //@
+    void enablePythia(){_PythiaGen = true;}
+    void enableCustomDimuon(){_CustomDimuon = true;}
+    void enableDrellYanGen(){_DrellYanGen = true;}
+    void enableJPsiGen(){_JPsiGen = true;}
+    void enablePsipGen(){_PsipGen = true;}
+
+    void set_pdfset(const std::string name) { _pdfset = name; }
+
+    void set_pT0DY    (const double val) { _pT0DY     = val; }
+    void set_pTpowDY  (const double val) { _pTpowDY   = val; }
+    void set_pT0JPsi  (const double val) { _pT0JPsi   = val; }
+    void set_pTpowJPsi(const double val) { _pTpowJPsi = val; }
+
+    //! config file for pythia
+    void set_config_file(const char *cfg_file)
+    {
+     if (cfg_file) _configFile = cfg_file; 
+    }
+
+    void set_xfRange(const double xmin, const double xmax){
+      xfMin = xmin;
+      xfMax = xmax;
+    }
+    void set_massRange(const double mmin, const double mmax){
+      massMin = mmin;
+      massMax = mmax;
+    }
+    //@
+
+    double CrossSectionDrellYan(const double mass, const double xF, const double pARatio);
+    double CrossSectionDrellYan(const double mass, const double xF, const double x1, const double x2, const double pARatio);
+    double CrossSectionJPsi(const double xF);
+    double CrossSectionPsip(const double xF);
+
+ private:
+    bool _PythiaGen;
+    bool _CustomDimuon;
+    bool _DrellYanGen;
+    bool _JPsiGen;
+    bool _PsipGen;
+
+    SQPrimaryVertexGen* _vertexGen;
+    PHG4InEvent *ineve;
+    SQEvent* _evt; //< An output node
+    SQMCEvent* _mcevt; //< An output node
+    SQDimuonVector* _vec_dim; //< An output node
+    PHGenIntegral *_integral_node; //< An output node
+    
+    SQDimuon* _dim_gen; //< To hold the kinematics of a dimuon generated
+
+    //Pythia generator
+    Pythia8::Pythia ppGen;    //!< Pythia pp generator
+    Pythia8::Pythia pnGen;    //!< Pythia pn generator
+    Pythia8::Pythia _Pythia;
+   //!config for pythia generator ; Abi
+    std::string _configFile;
+    int read_config(const char *cfg_file = 0);
+
+    //!ROOT phase space generator
+    TGenPhaseSpace phaseGen;
+
+    //!PDFs
+    std::string  _pdfset;
+    LHAPDF::PDF* _pdf;
+
+    // Parameters (being moved from DPGEN)
+    double _pT0DY;
+    double _pTpowDY;
+    double _pT0JPsi;
+    double _pTpowJPsi;
+  
+    //some initializations
+    double massMin = 0.22;
+    double massMax = 10.;
+    double x1Min = 0.;
+    double x1Max = 1.;
+    double x2Min = 0.;
+    double x2Max = 1.;
+    double xfMin = -1.;
+    double xfMax = 1.;
+    double cosThetaMin = -1.;
+    double cosThetaMax = 1. ;
+    double zOffsetMin = -1.;
+    double zOffsetMax = 1.;
+
+    void InsertMuonPair(const TVector3& vtx);
+    void InsertEventInfo(const double xsec, const double weight, const TVector3& vtx);
+
+    double _n_gen_acc_evt; //< N of generator-accepted events
+    double _n_proc_evt; //< N of processed events
+    double _weight_sum; //< Sum of weights
+    double _inte_lumi; //< Integrated luminosity
+};
+
+//========
+
+
+
+
+#endif
+
+#ifndef __SQPileupGen_H__
+#define __SQPileupGen_H__
+
+#include <vector>
+#include <TString.h>
+#include <g4main/PHG4ParticleGeneratorBase.h>
+
+class PHCompositeNode;
+class PHG4ParticleGeneratorBase;
+class PHG4InEvent;
+class PHG4Particle;
+
+class TFile;
+class TTree;
+class TClonesArray;
+class TF1;
+class TH1;
+
+class SQMCEvent;
+class SQPrimaryVertexGen;
+class SQEvent;
+
+class ExtParticle
+{
+ public:
+  ExtParticle(int evtID, int pdg, const TVector3& pos, const TVector3& mom);
+
+ public:
+  int _evtID;
+  int _pdg;
+  TVector3 _pos;
+  TVector3 _mom;
+};
+
+/// An SQ class to pileup the tracks from external file.
+class SQPileupGen: public PHG4ParticleGeneratorBase
+{
+ public:
+  SQPileupGen(const std::string& name = "PileupGen");
+  virtual ~SQPileupGen();
+
+  int Init(PHCompositeNode* topNode);
+  int InitRun(PHCompositeNode* topNode);
+  int process_event(PHCompositeNode* topNode);
+
+  void setExtInputFile(const TString& name) { _extFileName = name; } ///< Set external file with track info for pileup
+  void setBucketSize(int n) { _bucketSize = n; } ///< Set bucket size for pileup.
+  void set_inhibit_threshold (int threshold) {_inhibit_threshold = threshold;} ///< Set inhibit threshold in QIE if using intensity profile for pileup.
+  void set_proton_coeff (double coeff) {_proton_coeff = coeff;} ///< Set proton conversion coefficent from QIE count if using intensity profile for pileup.
+
+  TF1* get_beam_intensity_profile() const ///< Return beam intensity profile function for pileup
+  {
+    return _beam_intensity_profile;
+  }
+
+  TH1* get_beam_intensity_profile_histo() const ///< Return beam intensity profile histogram for pileup
+  {
+    return _beam_intensity_profile_histo;
+  }
+
+  void set_beam_intensity_profile(TF1* beamIntensityProfile) 
+  {
+    _beam_intensity_profile = beamIntensityProfile;
+  }
+
+  void set_beam_intensity_profile_histo(TH1* beamIntensityProfile_histo)
+  {
+    _beam_intensity_profile_histo = beamIntensityProfile_histo;
+  }
+
+
+ private:
+  //! read n events and fill the particle container, return false if there is no enough events left
+  bool readExtTree(int nEvents);
+
+  //! pointer to the instance of vertex generator
+  SQPrimaryVertexGen* _vertexGen;
+
+  //! MC truth container
+  PHG4InEvent* _ineve;
+  SQMCEvent*   _mcevt;
+  SQEvent* _evt; //< An output node
+
+
+  TF1* _beam_intensity_profile;
+  TH1* _beam_intensity_profile_histo;
+  //! internal container for quick particle cache
+  std::vector<ExtParticle> _extParticles;
+
+  //! Number of protons in each RF bucket
+  int _bucketSize;
+  int _n_proc_evt; //< N of processed events
+
+  //! External input file and parameters
+  TString _extFileName;
+
+  TFile* _extFile;
+  TTree* _extTree;
+
+  int _extEvtID;
+  int _readIdx;
+  int _nExtPar;
+  int _inhibit_threshold;
+  double _proton_coeff;
+  int _extPDG[10000];
+  TClonesArray* _extPos;
+  TClonesArray* _extMom;
+
+};
+
+#endif
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:177:45: error: allocation of incomplete type 'SQPrimaryParticleGen'
+    SQPrimaryParticleGen *e906legacy = new  SQPrimaryParticleGen();
+                                            ^~~~~~~~~~~~~~~~~~~~
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:184:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->set_xfRange(0.1, 0.5); //[-1.,1.]
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:185:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->set_massRange(1.0, 8.0);
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:186:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->enableDrellYanGen();
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:189:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->set_xfRange(0.1, 0.5); //[-1.,1.]
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:190:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->enablePsipGen();
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:193:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->set_xfRange(0.1, 0.5); //[-1.,1.]
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:194:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->enableJPsiGen();
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:197:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->enablePythia();
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:198:17: error: member access into incomplete type 'SQPrimaryParticleGen'
+      e906legacy->set_config_file("phpythia8_DY.cfg");
+                ^
+SQPrimaryGen_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQPrimaryParticleGen'
+class SQPrimaryParticleGen;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:200:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(e906legacy);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:205:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(cosmicGen);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:236:5: error: member access into incomplete type 'Fun4AllServer'
+  se->registerSubsystem(g4Reco);
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:247:5: error: member access into incomplete type 'Fun4AllServer'
+  se->registerSubsystem(digitizer);
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:258:5: error: member access into incomplete type 'Fun4AllServer'
+  se->registerSubsystem(new TruthNodeMaker());
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class SRawEventEmbed with content:
+
+#line 1 "SRawEventEmbed_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+/*
+ * SRawEventEmbed.h
+ *
+ *  Created on: Oct 29, 2017
+ *      Author: yuhw@nmsu.edu
+ */
+
+#ifndef _H_SRawEventEmbed_H_
+#define _H_SRawEventEmbed_H_
+
+// ROOT
+#include <TSQLServer.h>
+#include <TSQLResult.h>
+#include <TSQLRow.h>
+
+// Fun4All includes
+#include <fun4all/SubsysReco.h>
+
+// STL includes
+#include <vector>
+#include <string>
+#include <iostream>
+#include <list>
+#include <map>
+//#include <algorithm>
+
+#include <ktracker/SRawEvent.h>
+
+class SQRun;
+class SQSpillMap;
+
+class SQEvent;
+class SQHitMap;
+class SQHitVector;
+
+class PHG4TruthInfoContainer;
+
+class SRecEvent;
+
+class GeomSvc;
+
+class TFile;
+class TTree;
+
+class SRawEventEmbed: public SubsysReco {
+
+public:
+
+	SRawEventEmbed(const std::string &name = "SRawEventEmbed");
+	virtual ~SRawEventEmbed() {
+	}
+
+	int Init(PHCompositeNode *topNode);
+	int InitRun(PHCompositeNode *topNode);
+	int process_event(PHCompositeNode *topNode);
+	int End(PHCompositeNode *topNode);
+
+	int InitEvalTree();
+	int ResetEvalVars();
+
+	const std::string& get_hit_container_choice() const {
+		return _hit_container_type;
+	}
+
+	void set_hit_container_choice(const std::string& hitContainerChoice) {
+		_hit_container_type = hitContainerChoice;
+	}
+
+	const std::string& get_out_name() const {
+		return _out_name;
+	}
+
+	void set_out_name(const std::string& outName) {
+		_out_name = outName;
+	}
+
+	void print_noise_rate() const {
+		for(auto i : _noise_rate) {
+			std::cout << i.first << " -> " << i.second << std::endl;
+		}
+	}
+
+	void set_noise_rate(const std::string & name, const double & rate) {
+		_noise_rate[name] = rate;
+	}
+
+	const std::string& get_in_name() const {
+		return _in_name;
+	}
+
+	void set_in_name(const std::string& inName) {
+		_in_name = inName;
+	}
+
+	int get_trigger_bit() const {
+		return _trigger_bit;
+	}
+
+	void set_trigger_bit(int triggerBit) {
+		_trigger_bit = triggerBit;
+	}
+
+	const std::string& get_in_tree_name() const {
+		return _in_tree_name;
+	}
+
+	void set_in_tree_name(const std::string& inTreeName) {
+		_in_tree_name = inTreeName;
+	}
+
+private:
+
+	int GetNodes(PHCompositeNode *topNode);
+
+	std::string _hit_container_type;
+	std::map<std::string, double> _noise_rate;
+
+	size_t _event;
+
+	GeomSvc *p_geomSvc;
+
+	SQHitMap *_hit_map;
+	SQHitVector *_hit_vector;
+
+	std::string _in_name;
+	std::string _in_tree_name;
+	TFile* _fin;
+	TTree* _tin;
+	int _tree_entry;
+	int _trigger_bit;
+	SRawEvent* _srawevent;
+
+	std::string _out_name;
+	TTree* _tout;
+};
+
+
+#endif /* _H_SRawEventEmbed_H_ */
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:262:33: error: allocation of incomplete type 'SRawEventEmbed'
+    SRawEventEmbed *embed = new SRawEventEmbed("SRawEventEmbed");
+                                ^~~~~~~~~~~~~~
+SRawEventEmbed_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SRawEventEmbed'
+class SRawEventEmbed;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:263:10: error: member access into incomplete type 'SRawEventEmbed'
+    embed->set_in_name("digit_016070_R007.root");
+         ^
+SRawEventEmbed_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SRawEventEmbed'
+class SRawEventEmbed;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:264:10: error: member access into incomplete type 'SRawEventEmbed'
+    embed->set_in_tree_name("save");
+         ^
+SRawEventEmbed_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SRawEventEmbed'
+class SRawEventEmbed;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:265:10: error: member access into incomplete type 'SRawEventEmbed'
+    embed->set_trigger_bit((1<<0));
+         ^
+SRawEventEmbed_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SRawEventEmbed'
+class SRawEventEmbed;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:269:10: error: member access into incomplete type 'SRawEventEmbed'
+    embed->Verbosity(0);
+         ^
+SRawEventEmbed_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SRawEventEmbed'
+class SRawEventEmbed;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:270:7: error: member access into incomplete type 'Fun4AllServer'
+    se->registerSubsystem(embed);
+      ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class DPTriggerAnalyzer with content:
+
+#line 1 "DPTriggerAnalyzer_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+#ifndef DPTriggerAnalyzer_H
+#define DPTriggerAnalyzer_H
+#include <vector>
+#include <string>
+#include <iostream>
+#include <set>
+#include <list>
+#include <map>
+#include <string>
+#include <TString.h>
+#include <fun4all/SubsysReco.h>
+class SQRun;
+class SQEvent;
+class SQHitVector;
+
+#define NTRPLANES 4
+
+class DPTriggerRoad
+{
+public:
+    DPTriggerRoad();
+    DPTriggerRoad(const std::list<int>& path);
+
+    //! add one hit into the road
+    void addTrElement(int uniqueID) { uniqueTrIDs.push_back(uniqueID); }
+    void addTrElement(int detectorID, int elementID) { addTrElement(detectorID*1000 + elementID); }
+
+    //!Get the sign of LR or TB
+    int getTB();
+
+    //!flip the LR or TB
+    void flipTB();
+
+    //!Other gets
+    //@{
+    int getRoadID() const { return roadID; }
+    double getSigWeight() const { return sigWeight; }
+    double getBkgRate() const { return bkgRate; }
+    double getPxMin() const { return pXmin; }
+    int getTrID(unsigned int i) const { return i < NTRPLANES ? uniqueTrIDs[i] : 0; }
+    int getTrDetectorID(unsigned int i) const { return getTrID(i)/1000; }
+    int getTrElementID(unsigned int i) const { return getTrID(i) % 1000; }
+    TString getStringID();
+    //@}
+
+    //!Sets
+    //@{
+    void setRoadID(int id) { roadID = id; }
+    void setSigWeight(double weight) { sigWeight = weight; }
+    void setBkgRate(double rate) { bkgRate = rate; }
+    void setPxMin(double pxmin) { pXmin = pxmin; }
+    //@}
+
+    //!comparison
+    //@{
+    bool operator == (const DPTriggerRoad& elem) const;
+    bool operator <  (const DPTriggerRoad& elem) const;
+    //@}
+
+    //!printer
+    friend std::ostream& operator << (std::ostream& os, const DPTriggerRoad& road);
+
+private:
+
+    //!unique road ID
+    int roadID;
+
+    //!total signal weight
+    double sigWeight;
+
+    //!total background occurence
+    double bkgRate;
+
+    //!Minimum Px
+    double pXmin;
+
+    //!unique detector element IDs: = 1000*detectorID + elementID
+    std::vector<int> uniqueTrIDs;
+};
+
+class DPTriggerAnalyzer : public SubsysReco
+{
+public:
+    //!Forward declaration of MatrixNode format -- TODO will be eventuall private
+    class MatrixNode;
+
+public:
+    typedef enum { NIM_AND, NIM_OR } NimMode;
+    DPTriggerAnalyzer(const std::string &name = "DPTriggerAnalyzer");
+    virtual ~DPTriggerAnalyzer();
+
+    int Init(PHCompositeNode *topNode);
+    int InitRun(PHCompositeNode *topNode);
+    int process_event(PHCompositeNode *topNode);
+    int End(PHCompositeNode *topNode);
+
+    const std::string& get_road_set_file_name() const {
+      return _road_set_file_name;
+    }
+    void set_road_set_file_name(const std::string& roadSetFileName) {
+      _road_set_file_name = roadSetFileName;
+    }
+
+    const std::string& get_output_node_name() const { return _output_node_name; }
+    void set_output_node_name(const std::string& name) { _output_node_name = name; }
+
+    void use_trigger_hit() { _use_trig_hit = true; }
+    void require_in_time(const bool val) { _req_intime = val; }
+    void set_nim_mode(const NimMode nim1, const NimMode nim2);
+    
+    //!Build the trigger matrix by the input roads list
+    void buildTriggerMatrix();
+
+    //!Test the trigger pattern
+    //void analyzeTrigger(DPMCRawEvent* rawEvent);
+
+    //!search for possible roads
+    void searchMatrix(MatrixNode* node, int level, int index);
+
+    //!Tree deletion
+    void deleteMatrix(MatrixNode* node);
+
+    //!Helper function to retrieve the found road list
+    std::list<DPTriggerRoad>& getRoadsFound(int index) { return roads_found[index]; }
+
+    //!Helper functions to print various things
+    void printHitPattern();
+    void printPath();
+
+private:
+
+    int GetNodes(PHCompositeNode *topNode);
+
+    //! road set input file name
+    std::string _road_set_file_name;
+    std::string _output_node_name;
+    bool    _use_trig_hit;
+    bool    _req_intime;
+    NimMode _mode_nim1;
+    NimMode _mode_nim2;
+
+    //!Internal hit pattern structure
+    typedef std::vector<std::set<int> > TrHitPattern;
+    TrHitPattern data;
+
+    //!the trigger matrix, 0 for mu+, 1 for mu-
+    //@{
+    MatrixNode* matrix[2];
+    std::map<TString, DPTriggerRoad> roads[2];
+    //@}
+
+    //!container of the roads found for +/-
+    std::list<DPTriggerRoad> roads_found[2];
+
+    //!temporary container of traversal path
+    std::list<int> path;
+
+    //!flag on NIM-ONLY analysis
+    bool NIMONLY;
+
+    SQRun* _run_header;
+    SQEvent* _event_header;
+    SQEvent* _event_header_out; //< Node for output
+    SQHitVector* _hit_vector;
+};
+
+class DPTriggerAnalyzer::MatrixNode
+{
+public:
+    MatrixNode(int uID);
+
+    //!add a child
+    void add(MatrixNode* child);
+
+public:
+    int uniqueID;
+    std::list<MatrixNode*> children;
+};
+
+#endif
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:274:38: error: allocation of incomplete type 'DPTriggerAnalyzer'
+  DPTriggerAnalyzer* dptrigger = new DPTriggerAnalyzer();
+                                     ^~~~~~~~~~~~~~~~~
+DPTriggerAnalyzer_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'DPTriggerAnalyzer'
+class DPTriggerAnalyzer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:275:12: error: member access into incomplete type 'DPTriggerAnalyzer'
+  dptrigger->set_road_set_file_name("$E1039_RESOURCE/trigger/trigger_67.txt");
+           ^
+DPTriggerAnalyzer_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'DPTriggerAnalyzer'
+class DPTriggerAnalyzer;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:276:5: error: member access into incomplete type 'Fun4AllServer'
+  se->registerSubsystem(dptrigger);
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class SQReco with content:
+
+#line 1 "SQReco_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+/*
+ * Entry class for all SpinQuest reconstruction
+ */
+
+#ifndef _SQRECO_H
+#define _SQRECO_H
+
+#include <fun4all/SubsysReco.h>
+
+#include <vector>
+#include <string>
+#include <iostream>
+#include <list>
+#include <map>
+
+#include <TString.h>
+
+#include "GFFitter.h"
+
+class PHField;
+
+class Tracklet;
+class KalmanFastTracking;
+class KalmanFitter;
+class EventReducer;
+class SRawEvent;
+class SRecEvent;
+
+class SQRun;
+class SQSpillMap;
+
+class SQEvent;
+class SQHitMap;
+class SQHitVector;
+class SQTrackVector;
+
+class TFile;
+class TTree;
+class TGeoManager;
+class TClonesArray;
+
+class SQReco: public SubsysReco 
+{
+public:
+  enum INPUT_TYPE  {E906, E1039};
+  enum FITTER_TYPE {LEGACY, KF, KFREF, DAF, DAFREF};
+
+  SQReco(const std::string& name = "SQReco");
+  virtual ~SQReco();
+
+  virtual int Init(PHCompositeNode* topNode);
+  virtual int InitRun(PHCompositeNode* topNode);
+  virtual int process_event(PHCompositeNode* topNode);
+  virtual int End(PHCompositeNode* topNode);
+
+  void setInputTy(SQReco::INPUT_TYPE input_ty) { _input_type = input_ty; }
+  void setFitterTy(SQReco::FITTER_TYPE fitter_ty) { _fitter_type = fitter_ty; }
+
+  const TString& get_eval_file_name() const { return _eval_file_name; }
+  void set_eval_file_name(const TString& evalFileName) { _eval_file_name = evalFileName; }
+
+  bool use_geom_io_node() const  { return _use_geom_io_node; }
+  void use_geom_io_node(const bool val) { _use_geom_io_node = val; }
+
+  const std::string& get_geom_file_name() const { return _geom_file_name; }
+  void set_geom_file_name(const std::string& geomFileName) { _geom_file_name = geomFileName; }
+
+  bool is_KF_enabled() const { return _enable_KF; }
+  void set_enable_KF(bool enable) { _enable_KF = enable; }
+
+  /// See `KalmanFastTracking::setOutputListID()`.
+  void set_output_list_index(const int idx) { _output_list_idx = idx; }
+
+  bool is_eval_enabled() const { return _enable_eval; }
+  void set_enable_eval(bool enable) { _enable_eval = enable; }
+  bool is_eval_dst_enabled() const { return _enable_eval_dst; }
+  void set_enable_eval_dst(bool enable) { _enable_eval_dst = enable; }
+  void add_eval_list(int listID);
+
+  const TString& get_evt_reducer_opt() const { return _evt_reducer_opt; }
+  void set_evt_reducer_opt(const TString& opt) { _evt_reducer_opt = opt; }
+
+  void set_legacy_rec_container(const bool b = true) { _legacy_rec_container = b; } 
+
+protected:
+
+  virtual int InitField(PHCompositeNode* topNode);
+  virtual int InitGeom(PHCompositeNode* topNode);
+  virtual int InitFastTracking();
+  virtual int MakeNodes(PHCompositeNode* topNode);
+  virtual int GetNodes(PHCompositeNode* topNode);
+
+  int InitEvalTree();
+  int ResetEvalVars();
+
+  void ProcessEventPrep();
+  void ProcessEventFinish();
+  SRawEvent* BuildSRawEvent();
+  int updateHitInfo(SRawEvent* sraw_event);
+
+  bool fitTrackCand(Tracklet& tracklet, KalmanFitter* fitter);
+  bool fitTrackCand(Tracklet& tracklet, SQGenFit::GFFitter* fitter);
+
+  void fillRecTrack(SRecTrack& recTrack);
+
+  SQReco::INPUT_TYPE  _input_type;
+  SQReco::FITTER_TYPE _fitter_type;
+
+  int _output_list_idx;
+
+  bool _enable_eval;
+  TString _eval_file_name;
+  TTree*  _eval_tree;
+  TClonesArray* _tracklets;
+  std::vector<int> _eval_listIDs;
+
+  bool _enable_eval_dst;
+  TrackletVector* _tracklet_vector;
+
+  TString _evt_reducer_opt;
+  KalmanFastTracking* _fastfinder;
+  EventReducer*       _eventReducer;
+
+  bool _enable_KF;
+  KalmanFitter*       _kfitter;
+  SQGenFit::GFFitter* _gfitter;
+
+  PHField* _phfield;
+  SQGenFit::GFField* _gfield;
+
+  recoConsts* rc;
+
+  size_t _event;
+
+  SQRun*      _run_header;
+  SQSpillMap* _spill_map;
+
+  SQEvent*     _event_header;
+  SQHitVector* _hit_vector;
+  SQHitVector* _triggerhit_vector;
+
+  //map from the unique hitID to the index in the SQHitVector
+  std::map<int, size_t> _m_hitID_idx;
+  std::map<int, size_t> _m_trghitID_idx;
+
+  bool _legacy_rec_container;
+  SRawEvent* _rawEvent;
+  SRecEvent* _recEvent;
+  SQTrackVector* _recTrackVec;
+
+  bool _use_geom_io_node;
+  std::string  _geom_file_name;
+  TGeoManager* _t_geo_manager;
+};
+
+#endif
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:285:22: error: allocation of incomplete type 'SQReco'
+  SQReco* reco = new SQReco();
+                     ^~~~~~
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:286:7: error: member access into incomplete type 'SQReco'
+  reco->Verbosity(0);
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:288:7: error: member access into incomplete type 'SQReco'
+  reco->set_enable_KF(true);           //Kalman filter not needed for the track finding, disabling KF saves a lot of initialization time
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:289:7: error: member access into incomplete type 'SQReco'
+  reco->setInputTy(SQReco::E1039);     //options are SQReco::E906 and SQReco::E1039
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:290:7: error: member access into incomplete type 'SQReco'
+  reco->setFitterTy(SQReco::KFREF);    //not relavant for the track finding
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:291:7: error: member access into incomplete type 'SQReco'
+  reco->set_evt_reducer_opt("none");   //if not provided, event reducer will be using JobOptsSvc to intialize; to turn off, set it to "none", for normal tracking, set to something like "aoc"
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:292:7: error: member access into incomplete type 'SQReco'
+  reco->set_enable_eval(true);          //set to true to generate evaluation file which includes final track candidates 
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:293:7: error: member access into incomplete type 'SQReco'
+  reco->set_eval_file_name("eval.root");
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:294:7: error: member access into incomplete type 'SQReco'
+  reco->set_enable_eval_dst(false);     //set to true to include final track cnadidates in the DST tree
+      ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:295:22: error: member access into incomplete type 'SQReco'
+  if(gen_cosmic) reco->add_eval_list(3);    //output of cosmic reco is contained in the eval output for now
+                     ^
+SQReco_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'SQReco'
+class SQReco;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:299:5: error: member access into incomplete type 'Fun4AllServer'
+  se->registerSubsystem(reco);
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:680:30: error: no member named '_M_start' in 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >::_Vector_impl'
+        std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+                      ~~~~~~~~~~~~~ ^
+/exp/seaquest/app/software/osg/software/e1039/core/pr.145/include/ktracker/SRecEvent.h:42:7: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::~vector' requested here
+class SRecTrack: public SQTrack
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:712:4: error: constexpr variable '__move_storage' must be initialized by a constant expression
+          _Alloc_traits::_S_propagate_on_move_assign()
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/exp/seaquest/app/software/osg/software/e1039/core/pr.145/include/ktracker/SRecEvent.h:42:7: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::operator=' requested here
+class SRecTrack: public SQTrack
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:714:49: error: non-type template argument is not a constant expression
+        _M_move_assign(std::move(__x), __bool_constant<__move_storage>());
+                                                       ^~~~~~~~~~~~~~
+/usr/include/c++/11/bits/stl_vector.h:714:49: note: initializer of '__move_storage' is not a constant expression
+/usr/include/c++/11/bits/stl_vector.h:711:17: note: declared here
+        constexpr bool __move_storage =
+                       ^
+/usr/include/c++/11/bits/stl_vector.h:557:16: error: no member named '_M_finish' in 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >::_Vector_impl'
+        this->_M_impl._M_finish =
+        ~~~~~~~~~~~~~ ^
+/exp/seaquest/app/software/osg/software/e1039/core/pr.145/include/ktracker/SRecEvent.h:42:7: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::vector' requested here
+class SRecTrack: public SQTrack
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:919:40: error: no member named '_M_finish' in 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >::_Vector_impl'
+      { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
+                         ~~~~~~~~~~~~~ ^
+/usr/include/c++/11/bits/stl_vector.h:554:19: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::size' requested here
+      : _Base(__x.size(),
+                  ^
+/exp/seaquest/app/software/osg/software/e1039/core/pr.145/include/ktracker/SRecEvent.h:42:7: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::vector' requested here
+class SRecTrack: public SQTrack
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:281:22: error: no member named '_M_impl' in 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >'
+      { return this->_M_impl; }
+               ~~~~  ^
+/usr/include/c++/11/bits/stl_vector.h:555:39: note: in instantiation of member function 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >::_M_get_Tp_allocator' requested here
+        _Alloc_traits::_S_select_on_copy(__x._M_get_Tp_allocator()))
+                                             ^
+/exp/seaquest/app/software/osg/software/e1039/core/pr.145/include/ktracker/SRecEvent.h:42:7: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::vector' requested here
+class SRecTrack: public SQTrack
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:361:8: error: no member named '_M_impl' in 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >'
+        this->_M_impl._M_start = this->_M_allocate(__n);
+        ~~~~  ^
+/usr/include/c++/11/bits/stl_vector.h:305:9: note: in instantiation of member function 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >::_M_create_storage' requested here
+      { _M_create_storage(__n); }
+        ^
+/usr/include/c++/11/bits/stl_vector.h:554:9: note: in instantiation of member function 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >::_Vector_base' requested here
+      : _Base(__x.size(),
+        ^
+/exp/seaquest/app/software/osg/software/e1039/core/pr.145/include/ktracker/SRecEvent.h:42:7: note: in instantiation of member function 'std::vector<TMatrixT<double>, std::allocator<TMatrixT<double> > >::vector' requested here
+class SRecTrack: public SQTrack
+      ^
+In module 'std' imported from input_line_1:1:
+/usr/include/c++/11/bits/stl_vector.h:362:8: error: no member named '_M_impl' in 'std::_Vector_base<TMatrixT<double>, std::allocator<TMatrixT<double> > >'
+        this->_M_impl._M_finish = this->_M_impl._M_start;
+        ~~~~  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+Error in <TInterpreter::AutoParse>: Error parsing payload code for class VertexFit with content:
+
+#line 1 "VertexFit_Dict dictionary payload"
+
+
+#define _BACKWARD_BACKWARD_WARNING_H
+// Inline headers
+#ifndef _VERTEXFIT_H
+#define _VERTEXFIT_H
+
+/*
+VertexFit.h
+
+Definition of the Vertex fit of dimuon events, this package is aimed at:
+1. Use closest distance method to find z0 for two muon tracks
+2. Use vertex fit to fit the z0 --- will be implemented in next version
+
+Reference: CBM-SOFT-note-2006-001, by S. Gorbunov and I. Kisel, with some minor
+modifications
+
+Author: Kun Liu, liuk@fnal.gov
+Created: 2-8-2012
+*/
+
+// Fun4All includes
+#include <fun4all/SubsysReco.h>
+#include <GlobalConsts.h>
+
+#include <iostream>
+#include <vector>
+
+#include <TFile.h>
+#include <TTree.h>
+#include <TMatrixD.h>
+
+#include "KalmanUtil.h"
+#include "SRecEvent.h"
+#include "FastTracklet.h"
+#include "GenFitExtrapolator.h"
+
+class KalmanTrack;
+class KalmanFilter;
+class PHField;
+class TGeoManager;
+class JobOptsSvc;
+
+class VtxPar
+{
+public:
+    VtxPar()
+    {
+        _r.ResizeTo(3, 1);
+        _cov.ResizeTo(3, 3);
+
+        _r.Zero();
+        _cov.Zero();
+    }
+
+    void print()
+    {
+        SMatrix::printMatrix(_r, "Vertex position:");
+        SMatrix::printMatrix(_cov, "Vertex covariance:");
+    }
+
+    TMatrixD _r;
+    TMatrixD _cov;
+};
+
+class VertexFit : public SubsysReco
+{
+public:
+    VertexFit(const std::string& name = "VertexFit");
+    ~VertexFit();
+
+    int Init(PHCompositeNode *topNode);
+    int InitRun(PHCompositeNode *topNode);
+    int process_event(PHCompositeNode *topNode);
+    int End(PHCompositeNode *topNode);
+
+    ///Enable the optimization of final dimuon vertex z position
+    void enableOptimization() { optimize = true; }
+ //Fitting in the target center (Abi)
+    void enable_fit_target_center() {fit_target_center = true;}
+
+    ///Set the convergence control parameters
+    void setControlParameter(int nMaxIteration, double tolerance)
+    {
+        _max_iteration = nMaxIteration;
+        _tolerance = tolerance;
+    }
+
+    ///Set the SRecEvent, main external call the use vertex fit
+    int setRecEvent(SRecEvent* recEvent, int sign1 = 1, int sign2 = -1);
+
+    ///Initialize and reset
+    void init();
+    void addHypothesis(double z, double sigz = 50.) { z_start.push_back(z); sig_z_start.push_back(sigz); }
+    void setStartingVertex(double z_start, double sigz_start);
+
+    ///Add one track parameter set into the fit
+    void addTrack(int index, SRecTrack& _track);
+    void addTrack(int index, KalmanTrack& _track);
+    void addTrack(int index, TrkPar& _trkpar);
+
+    ///After setting both tracks and hypothesis, start the iteration
+    int processOnePair();
+
+    ///Find the primary vertex
+    int findVertex();
+    double findDimuonVertexFast(SRecTrack& track1, SRecTrack& track2);
+    double findSingleMuonVertex(SRecTrack& _track);
+    double findSingleMuonVertex(Node& _node_start);
+    double findSingleMuonVertex(TrkPar& _trkpar_start);
+
+    ///Gets
+    double getVertexZ0() { return _vtxpar_curr._r[2][0]; }
+    double getVXChisq() { return _chisq_vertex; }
+    double getKFChisq() { return _chisq_kalman; }
+    int getNTracks() { return _trkpar_curr.size(); }
+
+    ///Core function, update the vertex prediction according to the track info.
+    void updateVertex();
+
+    ///Evaluation
+    void bookEvaluation(std::string evalFileName = "vtx_eval.root");
+    void fillEvaluation();
+
+    ///Debugging output
+    void print();
+
+  const std::string& get_eval_file_name() const {
+    return evalFileName;
+  }
+
+  void set_eval_file_name(const std::string& evalFileName) {
+    this->evalFileName = evalFileName;
+  }
+
+private:
+
+    int InitField(PHCompositeNode *topNode);
+
+    int InitGeom(PHCompositeNode *topNode);
+
+    int MakeNodes(PHCompositeNode *topNode);
+
+    int GetNodes(PHCompositeNode *topNode);
+
+    ///storage of the input track parameters
+    std::vector<TrkPar> _trkpar_curr;
+
+    ///vertex parameter
+    VtxPar _vtxpar_curr;
+
+    ///Kalman node at the vertex
+    Node _node_vertex;
+
+    ///pointer to external Kalman filter
+    KalmanFilter* _kmfit;
+
+    ///chi squares
+    double _chisq_vertex;
+    double _chisq_kalman;
+
+    ///Starting points
+    std::vector<double> z_start;
+    std::vector<double> sig_z_start;
+
+    ///Temporary results
+    std::vector<double> z_vertex;
+    std::vector<double> r_vertex;
+    std::vector<double> chisq_km;
+    std::vector<double> chisq_vx;
+
+    ///convergence control parameter
+    int _max_iteration;
+    double _tolerance;
+
+    ///Track extrapolator
+    GenFitExtrapolator _extrapolator;
+
+    ///Flag to enable/disable optimization of final position
+    bool optimize;
+    bool fit_target_center;
+
+    TGeoManager * _t_geo_manager;
+
+    SRecEvent* _recEvent;
+
+    ///Evaluation file and tree
+    std::string evalFileName;
+    TFile* evalFile;
+    TTree* evalTree;
+
+    int runID;
+    int eventID;
+    int targetPos;
+    int nPos;
+    int nNeg;
+    int p_idx_eval;
+    int m_idx_eval;
+    int choice_eval;
+    int choice_by_kf_eval;
+    int choice_by_vx_eval;
+
+    int nStart;
+    double z_start_eval[50];
+    int nIter_eval[50];
+    double chisq_kf_eval[50];
+    double chisq_vx_eval[50];
+    double z_vertex_eval[50];
+    double r_vertex_eval[50];
+
+    double m_chisq_kf_eval;
+    double s_chisq_kf_eval;
+    double m_z_vertex_eval;
+    double s_z_vertex_eval;
+};
+
+#endif
+
+#undef  _BACKWARD_BACKWARD_WARNING_H
+
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:301:30: error: allocation of incomplete type 'VertexFit'
+  VertexFit* vertexing = new VertexFit();
+                             ^~~~~~~~~
+VertexFit_Dict dictionary forward declarations' payload:5:7: note: forward declaration of 'VertexFit'
+class VertexFit;
+      ^
+In file included from input_line_8:1:
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1/Fun4Sim.C:304:5: error: member access into incomplete type 'Fun4AllServer'
+  se->registerSubsystem(vertexing);
+    ^
+Fun4All_Dict dictionary forward declarations' payload:13:7: note: forward declaration of 'Fun4AllServer'
+class Fun4AllServer;
+      ^
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00007f62e0ad89fa in wait4 () from /lib64/libc.so.6
+#1  0x00007f62e0a4b243 in do_system () from /lib64/libc.so.6
+#2  0x00007f62e149232c in TUnixSystem::StackTrace() () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/bin/../lib/libCore.so
+#3  0x00007f62e148fa45 in TUnixSystem::DispatchSignals(ESignals) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/bin/../lib/libCore.so
+#4  <signal handler called>
+#5  0x00007f62de3ace66 in clang::DeclContext::removeDecl(clang::Decl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#6  0x00007f62db961fd6 in cling::DeclUnloader::VisitNamedDecl(clang::NamedDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#7  0x00007f62db96547b in cling::DeclUnloader::VisitDeclContext(clang::DeclContext*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#8  0x00007f62db96625b in cling::DeclUnloader::VisitNamespaceDecl(clang::NamespaceDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#9  0x00007f62db9654cb in cling::DeclUnloader::VisitDeclContext(clang::DeclContext*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#10 0x00007f62db96625b in cling::DeclUnloader::VisitNamespaceDecl(clang::NamespaceDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#11 0x00007f62db935fea in cling::TransactionUnloader::unloadDeserializedDeclarations(cling::Transaction*, cling::DeclUnloader&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#12 0x00007f62db936386 in cling::TransactionUnloader::RevertTransaction(cling::Transaction*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#13 0x00007f62db91a965 in cling::Interpreter::unload(cling::Transaction&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#14 0x00007f62db999f0f in cling::IncrementalParser::commitTransaction(llvm::PointerIntPair<cling::Transaction*, 2u, cling::IncrementalParser::EParseResult, llvm::PointerLikeTypeTraits<cling::Transaction*>, llvm::PointerIntPairInfo<cling::Transaction*, 2u, llvm::PointerLikeTypeTraits<cling::Transaction*> > >&, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#15 0x00007f62db99cce9 in cling::IncrementalParser::Compile(llvm::StringRef, cling::CompilationOptions const&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#16 0x00007f62db9179d4 in cling::Interpreter::parseForModule(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#17 0x00007f62db8497e6 in ExecAutoParse(char const*, bool, cling::Interpreter*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#18 0x00007f62db84b0d4 in TCling::AutoParseImplRecurse(char const*, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#19 0x00007f62db84fe55 in TCling::AutoParse(char const*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#20 0x00007f62db896b98 in TClingCallbacks::LookupObject(clang::TagDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#21 0x00007f62db920b70 in cling::MultiplexInterpreterCallbacks::LookupObject(clang::TagDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#22 0x00007f62dc438360 in clang::MultiplexExternalSemaSource::CompleteType(clang::TagDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#23 0x00007f62dcc71fb3 in clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#24 0x00007f62dcc726d5 in clang::Sema::RequireCompleteType(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#25 0x00007f62dc81eda1 in clang::Sema::CheckAllocatedType(clang::QualType, clang::SourceLocation, clang::SourceRange) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#26 0x00007f62dc82ab6f in clang::Sema::BuildCXXNew(clang::SourceRange, bool, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::SourceRange, clang::QualType, clang::TypeSourceInfo*, llvm::Optional<clang::Expr*>, clang::SourceRange, clang::Expr*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#27 0x00007f62dc82cabf in clang::Sema::ActOnCXXNew(clang::SourceLocation, bool, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::SourceRange, clang::Declarator&, clang::Expr*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#28 0x00007f62dc24f763 in clang::Parser::ParseCXXNewExpression(bool, clang::SourceLocation) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#29 0x00007f62dc23adde in clang::Parser::ParseCastExpression(clang::Parser::CastParseKind, bool, bool&, clang::Parser::TypeCastState, bool, bool*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#30 0x00007f62dc23c8ea in clang::Parser::ParseCastExpression(clang::Parser::CastParseKind, bool, clang::Parser::TypeCastState, bool, bool*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#31 0x00007f62dc23f7d9 in clang::Parser::ParseAssignmentExpression(clang::Parser::TypeCastState) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#32 0x00007f62dc205f5e in clang::Parser::ParseDeclarationAfterDeclaratorAndAttributes(clang::Declarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::ForRangeInit*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#33 0x00007f62dc21654b in clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::SourceLocation*, clang::Parser::ForRangeInit*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#34 0x00007f62dc217014 in clang::Parser::ParseSimpleDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributesWithRange&, bool, clang::Parser::ForRangeInit*, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#35 0x00007f62dc2173f1 in clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributesWithRange&, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#36 0x00007f62dc29fccd in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributesWithRange&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#37 0x00007f62dc29ff26 in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#38 0x00007f62dc2a7a02 in clang::Parser::ParseCompoundStatementBody(bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#39 0x00007f62dc2a844b in clang::Parser::ParseCompoundStatement(bool, unsigned int) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#40 0x00007f62dc29f403 in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributesWithRange&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#41 0x00007f62dc29ff26 in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#42 0x00007f62dc2a0152 in clang::Parser::ParseStatement(clang::SourceLocation*, clang::Parser::ParsedStmtContext) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#43 0x00007f62dc2a3cbf in clang::Parser::ParseIfStatement(clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#44 0x00007f62dc29f929 in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributesWithRange&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#45 0x00007f62dc29ff26 in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#46 0x00007f62dc2a7a02 in clang::Parser::ParseCompoundStatementBody(bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#47 0x00007f62dc2a9b8a in clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#48 0x00007f62dc2d4d3f in clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#49 0x00007f62dc21668c in clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::SourceLocation*, clang::Parser::ForRangeInit*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#50 0x00007f62dc2d01b5 in clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributesWithRange&, clang::ParsingDeclSpec*, clang::AccessSpecifier) [clone .part.0] () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#51 0x00007f62dc2d78dd in clang::Parser::ParseExternalDeclaration(clang::ParsedAttributesWithRange&, clang::ParsingDeclSpec*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#52 0x00007f62dc2d8852 in clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#53 0x00007f62db99bc58 in cling::IncrementalParser::ParseInternal(llvm::StringRef) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#54 0x00007f62db99ccbd in cling::IncrementalParser::Compile(llvm::StringRef, cling::CompilationOptions const&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#55 0x00007f62db91a6b8 in cling::Interpreter::loadHeader(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cling::Transaction**) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#56 0x00007f62db9ea443 in cling::MetaSema::actOnLCommand(llvm::StringRef, cling::Transaction**) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#57 0x00007f62db9ea5cf in cling::MetaSema::actOnxCommand(llvm::StringRef, llvm::StringRef, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#58 0x00007f62db9f7b87 in cling::MetaParser::isXCommand(cling::MetaSema::ActionResult&, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#59 0x00007f62db9f94d5 in cling::MetaParser::isCommand(cling::MetaSema::ActionResult&, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#60 0x00007f62db9e36b0 in cling::MetaProcessor::process(llvm::StringRef, cling::Interpreter::CompilationResult&, cling::Value*, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#61 0x00007f62db82c89c in HandleInterpreterException(cling::MetaProcessor*, char const*, cling::Interpreter::CompilationResult&, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#62 0x00007f62db83fc46 in TCling::ProcessLine(char const*, TInterpreter::EErrorCode*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#63 0x00007f62db83ffd6 in TCling::ProcessLineSynch(char const*, TInterpreter::EErrorCode*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#64 0x00007f62e133ac65 in TApplication::ExecuteFile(char const*, int*, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/bin/../lib/libCore.so
+#65 0x00007f62e164b0ec in TRint::ProcessLineNr(char const*, char const*, int*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/bin/../lib/libRint.so
+#66 0x00007f62e164ce6d in TRint::Run(bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/bin/../lib/libRint.so
+#67 0x00000000004011bd in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash. If you see question
+marks as part of the stack trace, try to recompile with debugging information
+enabled and export CLING_DEBUG=1 environment variable before running.
+You may get help by asking at the ROOT forum https://root.cern/forum
+preferably using the command (.forum bug) in the ROOT prompt.
+Only if you are really convinced it is a bug in ROOT then please submit a
+report at https://root.cern/bugs or (preferably) using the command (.gh bug) in
+the ROOT prompt. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x00007f62de3ace66 in clang::DeclContext::removeDecl(clang::Decl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#6  0x00007f62db961fd6 in cling::DeclUnloader::VisitNamedDecl(clang::NamedDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#7  0x00007f62db96547b in cling::DeclUnloader::VisitDeclContext(clang::DeclContext*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#8  0x00007f62db96625b in cling::DeclUnloader::VisitNamespaceDecl(clang::NamespaceDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#9  0x00007f62db9654cb in cling::DeclUnloader::VisitDeclContext(clang::DeclContext*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#10 0x00007f62db96625b in cling::DeclUnloader::VisitNamespaceDecl(clang::NamespaceDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#11 0x00007f62db935fea in cling::TransactionUnloader::unloadDeserializedDeclarations(cling::Transaction*, cling::DeclUnloader&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#12 0x00007f62db936386 in cling::TransactionUnloader::RevertTransaction(cling::Transaction*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#13 0x00007f62db91a965 in cling::Interpreter::unload(cling::Transaction&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#14 0x00007f62db999f0f in cling::IncrementalParser::commitTransaction(llvm::PointerIntPair<cling::Transaction*, 2u, cling::IncrementalParser::EParseResult, llvm::PointerLikeTypeTraits<cling::Transaction*>, llvm::PointerIntPairInfo<cling::Transaction*, 2u, llvm::PointerLikeTypeTraits<cling::Transaction*> > >&, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#15 0x00007f62db99cce9 in cling::IncrementalParser::Compile(llvm::StringRef, cling::CompilationOptions const&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#16 0x00007f62db9179d4 in cling::Interpreter::parseForModule(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#17 0x00007f62db8497e6 in ExecAutoParse(char const*, bool, cling::Interpreter*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#18 0x00007f62db84b0d4 in TCling::AutoParseImplRecurse(char const*, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#19 0x00007f62db84fe55 in TCling::AutoParse(char const*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#20 0x00007f62db896b98 in TClingCallbacks::LookupObject(clang::TagDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#21 0x00007f62db920b70 in cling::MultiplexInterpreterCallbacks::LookupObject(clang::TagDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#22 0x00007f62dc438360 in clang::MultiplexExternalSemaSource::CompleteType(clang::TagDecl*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#23 0x00007f62dcc71fb3 in clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#24 0x00007f62dcc726d5 in clang::Sema::RequireCompleteType(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#25 0x00007f62dc81eda1 in clang::Sema::CheckAllocatedType(clang::QualType, clang::SourceLocation, clang::SourceRange) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#26 0x00007f62dc82ab6f in clang::Sema::BuildCXXNew(clang::SourceRange, bool, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::SourceRange, clang::QualType, clang::TypeSourceInfo*, llvm::Optional<clang::Expr*>, clang::SourceRange, clang::Expr*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#27 0x00007f62dc82cabf in clang::Sema::ActOnCXXNew(clang::SourceLocation, bool, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::SourceRange, clang::Declarator&, clang::Expr*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#28 0x00007f62dc24f763 in clang::Parser::ParseCXXNewExpression(bool, clang::SourceLocation) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#29 0x00007f62dc23adde in clang::Parser::ParseCastExpression(clang::Parser::CastParseKind, bool, bool&, clang::Parser::TypeCastState, bool, bool*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#30 0x00007f62dc23c8ea in clang::Parser::ParseCastExpression(clang::Parser::CastParseKind, bool, clang::Parser::TypeCastState, bool, bool*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#31 0x00007f62dc23f7d9 in clang::Parser::ParseAssignmentExpression(clang::Parser::TypeCastState) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#32 0x00007f62dc205f5e in clang::Parser::ParseDeclarationAfterDeclaratorAndAttributes(clang::Declarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::ForRangeInit*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#33 0x00007f62dc21654b in clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::SourceLocation*, clang::Parser::ForRangeInit*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#34 0x00007f62dc217014 in clang::Parser::ParseSimpleDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributesWithRange&, bool, clang::Parser::ForRangeInit*, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#35 0x00007f62dc2173f1 in clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributesWithRange&, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#36 0x00007f62dc29fccd in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributesWithRange&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#37 0x00007f62dc29ff26 in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#38 0x00007f62dc2a7a02 in clang::Parser::ParseCompoundStatementBody(bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#39 0x00007f62dc2a844b in clang::Parser::ParseCompoundStatement(bool, unsigned int) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#40 0x00007f62dc29f403 in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributesWithRange&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#41 0x00007f62dc29ff26 in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#42 0x00007f62dc2a0152 in clang::Parser::ParseStatement(clang::SourceLocation*, clang::Parser::ParsedStmtContext) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#43 0x00007f62dc2a3cbf in clang::Parser::ParseIfStatement(clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#44 0x00007f62dc29f929 in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributesWithRange&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#45 0x00007f62dc29ff26 in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#46 0x00007f62dc2a7a02 in clang::Parser::ParseCompoundStatementBody(bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#47 0x00007f62dc2a9b8a in clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#48 0x00007f62dc2d4d3f in clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#49 0x00007f62dc21668c in clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::SourceLocation*, clang::Parser::ForRangeInit*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#50 0x00007f62dc2d01b5 in clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributesWithRange&, clang::ParsingDeclSpec*, clang::AccessSpecifier) [clone .part.0] () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#51 0x00007f62dc2d78dd in clang::Parser::ParseExternalDeclaration(clang::ParsedAttributesWithRange&, clang::ParsingDeclSpec*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#52 0x00007f62dc2d8852 in clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#53 0x00007f62db99bc58 in cling::IncrementalParser::ParseInternal(llvm::StringRef) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#54 0x00007f62db99ccbd in cling::IncrementalParser::Compile(llvm::StringRef, cling::CompilationOptions const&) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#55 0x00007f62db91a6b8 in cling::Interpreter::loadHeader(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cling::Transaction**) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#56 0x00007f62db9ea443 in cling::MetaSema::actOnLCommand(llvm::StringRef, cling::Transaction**) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#57 0x00007f62db9ea5cf in cling::MetaSema::actOnxCommand(llvm::StringRef, llvm::StringRef, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#58 0x00007f62db9f7b87 in cling::MetaParser::isXCommand(cling::MetaSema::ActionResult&, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#59 0x00007f62db9f94d5 in cling::MetaParser::isCommand(cling::MetaSema::ActionResult&, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#60 0x00007f62db9e36b0 in cling::MetaProcessor::process(llvm::StringRef, cling::Interpreter::CompilationResult&, cling::Value*, bool) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+#61 0x00007f62db82c89c in HandleInterpreterException(cling::MetaProcessor*, char const*, cling::Interpreter::CompilationResult&, cling::Value*) () from /exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib/libCling.so
+===========================================================
+
+
+
+real	1m2.425s
+user	0m11.115s
+sys	0m1.960s
+Error in Fun4Sim.C: 129

@@ -1,0 +1,1048 @@
+CONDOR_DIR_INPUT is initiallized as ./input
+CONDOR_DIR_OUTPUT is initiallized as ./out
+hello, grid.
+HOST = spinquestgpvm01.fnal.gov
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test02/1
+Fun4Sim.C
+disp_geom.C
+phpythia8_DY.cfg
+phpythia8_Jpsi.cfg
+phpythia8_Jpsi_direct.cfg
+phpythia8_psip.cfg
+run3_sim.opts
+run6_sim.opts
+run7_sim.opts
+total 7.0K
+-rw-r--r-- 1 mhossain 500  13K Aug 19 01:21 Fun4Sim.C
+-rw-r--r-- 1 mhossain 500  449 Aug 18 23:50 disp_geom.C
+-rwxr-xr-x 1 mhossain 500 1.3K Aug 18 23:50 gridrun.sh
+drwxr-xr-x 2 mhossain 500    3 Aug 19 01:21 input
+-rw-r--r-- 1 mhossain 500  346 Aug 19 01:21 log_gridrun.txt
+drwxr-xr-t 2 mhossain 500    3 Aug 19 01:21 out
+-rw-r--r-- 1 mhossain 500  114 Aug 19 01:21 out.txt
+-rw-r--r-- 1 mhossain 500  876 Aug 18 23:50 phpythia8_DY.cfg
+-rw-r--r-- 1 mhossain 500 1.4K Aug 18 23:50 phpythia8_Jpsi.cfg
+-rw-r--r-- 1 mhossain 500 1.4K Aug 18 23:50 phpythia8_Jpsi_direct.cfg
+-rw-r--r-- 1 mhossain 500 1.6K Aug 18 23:50 phpythia8_psip.cfg
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run3_sim.opts
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run6_sim.opts
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run7_sim.opts
+SETUP = /exp/seaquest/app/software/osg/software/e1039/this-e1039.sh
+LD_LIBRARY_PATH=/exp/seaquest/app/software/osg/software/e1039/core/pr.145/lib:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib64:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib:/exp/seaquest/app/software/osg/software/e1039/share/20240816/lib64:/exp/seaquest/app/software/osg/software/e1039/share/20240816/root/lib
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.30/04                        https://root.cern |
+  | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxx8664gcc on Aug 16 2024, 23:59:19                 |
+  | From heads/master@tags/v6-30-04                                  |
+  | With c++ (GCC) 11.4.1 20231218 (Red Hat 11.4.1-3)                |
+  | Try '.help'/'.?', '.demo', '.license', '.credits', '.quit'/'.q'  |
+   ------------------------------------------------------------------
+
+
+Processing Fun4Sim.C(500)...
+
+char* Flags:
+AlignmentHodo is /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/alignment_hodo.txt
+AlignmentMille is /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/align_mille.txt
+AlignmentProp is /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/alignment_prop.txt
+Calibration is /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/calibration.txt
+DB_SERVER is DB1
+DB_USER is seaguest
+EventReduceOpts is aoc
+TRIGGER_L1 is 67
+TRIGGER_Repo is /exp/seaquest/app/software/osg/software/e1039/resource/trigger
+VTX_GEN_MATERIAL_MODE is Target
+fMagFile is /exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Fmag.root
+kMagFile is /exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Kmag.root
+
+Float Flags:
+
+Double Flags:
+BAD_HIT_REJECTION is 3
+DEDX_FE_P0 is 7.18274
+DEDX_FE_P1 is 0.0361447
+DEDX_FE_P2 is -0.000718127
+DEDX_FE_P3 is 7.97312e-06
+DEDX_FE_P4 is -3.05481e-08
+ELOSS_ABSORBER is 1.81
+ELOSS_KFMAG is 8.12
+FMAGSTR is -1.044
+FMAG_HOLE_LENGTH is 27.94
+FMAG_HOLE_RADIUS is 1.27
+FMAG_LENGTH is 502.92
+INVP_MAX is 0.2
+INVP_MIN is 0.01
+KMAGSTR is -1.025
+MERGE_THRESH is 0.015
+MUID_EMP_P0 is 0.00643
+MUID_EMP_P1 is -9e-05
+MUID_EMP_P2 is 4.6e-07
+MUID_REJECTION is 4
+MUID_R_CUT is 3
+MUID_THE_P0 is 0.11825
+MUID_Z_REF is 2028.19
+PROB_LOOSE is 0
+PROB_TIGHT is 1e-12
+PT_KICK_FMAG is 2.909
+PT_KICK_KMAG is 0.4016
+RESOLUTION_FACTOR is 1.6
+RX_TARGET is 0.95
+RY_TARGET is 0.95
+RejectWinDC0 is 0.12
+RejectWinDC1 is 0.12
+RejectWinDC2 is 0.15
+RejectWinDC3m is 0.14
+RejectWinDC3p is 0.16
+SAGITTA_DUMP_CENTER is 1.5
+SAGITTA_DUMP_WIDTH is 0.3
+SAGITTA_TARGET_CENTER is 1.85
+SAGITTA_TARGET_WIDTH is 0.25
+SIGX_BEAM is 0.3
+SIGY_BEAM is 0.3
+TDCTimeOffset is 0
+TMAGSTR is 5
+TX_MAX is 0.15
+TY_MAX is 0.1
+X0_MAX is 150
+X0_TARGET is 0
+X_BEAM is 0
+Y0_MAX is 50
+Y0_TARGET is 0
+Y_BEAM is 0
+Z_ABSORBER is 2028.19
+Z_DOWNSTREAM is 500
+Z_DUMP is 42
+Z_FMAG_BEND is 251.4
+Z_KFMAG_BEND is 375
+Z_KMAG_BEND is 1042.02
+Z_REF is 0
+Z_ST1 is 600
+Z_ST2 is 1347.36
+Z_ST3 is 1910
+Z_TARGET is -300
+Z_UPSTREAM is -500
+
+Integer Flags:
+MUID_MINHITS is 1
+MaxHitsDC0 is 100
+MaxHitsDC1 is 100
+MaxHitsDC2 is 100
+MaxHitsDC3m is 100
+MaxHitsDC3p is 100
+NSTEPS_FMAG is 100
+NSTEPS_SHIELDING is 50
+NSTEPS_TARGET is 100
+RUNNUMBER is 4453
+
+Boolean Flags:
+COARSE_MODE is FALSE
+COSMIC_MODE is FALSE
+DUMPONLY is FALSE
+IdealGeom is FALSE
+KMAG_ON is TRUE
+MC_MODE is FALSE
+OnlineAlignment is FALSE
+REQUIRE_MUID is TRUE
+TARGETONLY is FALSE
+USE_TWTDC_HIT is FALSE
+USE_V1495_HIT is TRUE
+GeomSvc:  Load the plane geometry info for run_id = 4453.
+Read channel map from user_e1039_geom_plane.param_2022111601.
+GeomSvc: loaded hodoscope alignment parameters from /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/alignment_hodo.txt
+GeomSvc: loaded prop. tube alignment parameters from /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/alignment_prop.txt
+GeomSvc: loaded millepede-based alignment parameters from /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/align_mille.txt
+GeomSvc: loaded calibration parameters from /exp/seaquest/app/software/osg/software/e1039/resource/alignment/run6/calibration.txt
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.240      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 20 Dec 2018  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 19 Aug 2024 at 01:21:44    |  | 
+ |  |                                                                              |  | 
+ |  |   Christian Bierlich;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christian.bierlich@thep.lu.se                                   |  | 
+ |  |   Nishita Desai;  Department of Theoretical Physics, Tata Institute,         |  | 
+ |  |      Homi Bhabha Road, Mumbai 400005, India;                                 |  | 
+ |  |      e-mail: desai@theory.tifr.res.in                                        |  | 
+ |  |   Ilkka Helenius;  Department of Physics, University of Jyvaskyla,           |  | 
+ |  |      P.O. Box 35, FI-40014 University of Jyvaskyla, Finland;                 |  | 
+ |  |      e-mail: ilkka.m.helenius@jyu.fi                                         |  | 
+ |  |   Philip Ilten;  School of Physics and Astronomy,                            |  | 
+ |  |      University of Birmingham, Birmingham, B152 2TT, UK;                     |  | 
+ |  |      e-mail: philten@cern.ch                                                 |  | 
+ |  |   Leif Lonnblad;  Department of Astronomy and Theoretical Physics,           |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: leif.lonnblad@thep.lu.se                                        |  | 
+ |  |   Stephen Mrenna;  Computing Division, Simulations Group,                    |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: mrenna@fnal.gov                                                 |  | 
+ |  |   Stefan Prestel;  Department of Astronomy and Theoretical Physics,          |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: stefan.prestel@thep.lu.se                                       |  | 
+ |  |   Christine O. Rasmussen;  Department of Astronomy and Theoretical Physics,  |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christine.rasmussen@thep.lu.se                                  |  | 
+ |  |   Torbjorn Sjostrand;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: torbjorn@thep.lu.se                                             |  | 
+ |  |   Peter Skands;  School of Physics,                                          |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: peter.skands@monash.edu                                         |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is 'An Introduction to PYTHIA 8.2',             |  | 
+ |  |   T. Sjostrand et al, Comput. Phys. Commun. 191 (2015) 159                   |  | 
+ |  |   [arXiv:1410.3012 [hep-ph]]                                                 |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]  |  | 
+ |  |                                                                              |  | 
+ |  |   An archive of program versions and documentation is found on the web:      |  | 
+ |  |   http://www.thep.lu.se/Pythia                                               |  | 
+ |  |                                                                              |  | 
+ |  |   This program is released under the GNU General Public Licence version 2.   |  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2018 Torbjorn Sjostrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.240      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 20 Dec 2018  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 19 Aug 2024 at 01:21:44    |  | 
+ |  |                                                                              |  | 
+ |  |   Christian Bierlich;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christian.bierlich@thep.lu.se                                   |  | 
+ |  |   Nishita Desai;  Department of Theoretical Physics, Tata Institute,         |  | 
+ |  |      Homi Bhabha Road, Mumbai 400005, India;                                 |  | 
+ |  |      e-mail: desai@theory.tifr.res.in                                        |  | 
+ |  |   Ilkka Helenius;  Department of Physics, University of Jyvaskyla,           |  | 
+ |  |      P.O. Box 35, FI-40014 University of Jyvaskyla, Finland;                 |  | 
+ |  |      e-mail: ilkka.m.helenius@jyu.fi                                         |  | 
+ |  |   Philip Ilten;  School of Physics and Astronomy,                            |  | 
+ |  |      University of Birmingham, Birmingham, B152 2TT, UK;                     |  | 
+ |  |      e-mail: philten@cern.ch                                                 |  | 
+ |  |   Leif Lonnblad;  Department of Astronomy and Theoretical Physics,           |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: leif.lonnblad@thep.lu.se                                        |  | 
+ |  |   Stephen Mrenna;  Computing Division, Simulations Group,                    |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: mrenna@fnal.gov                                                 |  | 
+ |  |   Stefan Prestel;  Department of Astronomy and Theoretical Physics,          |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: stefan.prestel@thep.lu.se                                       |  | 
+ |  |   Christine O. Rasmussen;  Department of Astronomy and Theoretical Physics,  |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christine.rasmussen@thep.lu.se                                  |  | 
+ |  |   Torbjorn Sjostrand;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: torbjorn@thep.lu.se                                             |  | 
+ |  |   Peter Skands;  School of Physics,                                          |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: peter.skands@monash.edu                                         |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is 'An Introduction to PYTHIA 8.2',             |  | 
+ |  |   T. Sjostrand et al, Comput. Phys. Commun. 191 (2015) 159                   |  | 
+ |  |   [arXiv:1410.3012 [hep-ph]]                                                 |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]  |  | 
+ |  |                                                                              |  | 
+ |  |   An archive of program versions and documentation is found on the web:      |  | 
+ |  |   http://www.thep.lu.se/Pythia                                               |  | 
+ |  |                                                                              |  | 
+ |  |   This program is released under the GNU General Public Licence version 2.   |  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2018 Torbjorn Sjostrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.240      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 20 Dec 2018  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 19 Aug 2024 at 01:21:44    |  | 
+ |  |                                                                              |  | 
+ |  |   Christian Bierlich;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christian.bierlich@thep.lu.se                                   |  | 
+ |  |   Nishita Desai;  Department of Theoretical Physics, Tata Institute,         |  | 
+ |  |      Homi Bhabha Road, Mumbai 400005, India;                                 |  | 
+ |  |      e-mail: desai@theory.tifr.res.in                                        |  | 
+ |  |   Ilkka Helenius;  Department of Physics, University of Jyvaskyla,           |  | 
+ |  |      P.O. Box 35, FI-40014 University of Jyvaskyla, Finland;                 |  | 
+ |  |      e-mail: ilkka.m.helenius@jyu.fi                                         |  | 
+ |  |   Philip Ilten;  School of Physics and Astronomy,                            |  | 
+ |  |      University of Birmingham, Birmingham, B152 2TT, UK;                     |  | 
+ |  |      e-mail: philten@cern.ch                                                 |  | 
+ |  |   Leif Lonnblad;  Department of Astronomy and Theoretical Physics,           |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: leif.lonnblad@thep.lu.se                                        |  | 
+ |  |   Stephen Mrenna;  Computing Division, Simulations Group,                    |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: mrenna@fnal.gov                                                 |  | 
+ |  |   Stefan Prestel;  Department of Astronomy and Theoretical Physics,          |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: stefan.prestel@thep.lu.se                                       |  | 
+ |  |   Christine O. Rasmussen;  Department of Astronomy and Theoretical Physics,  |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christine.rasmussen@thep.lu.se                                  |  | 
+ |  |   Torbjorn Sjostrand;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: torbjorn@thep.lu.se                                             |  | 
+ |  |   Peter Skands;  School of Physics,                                          |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: peter.skands@monash.edu                                         |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is 'An Introduction to PYTHIA 8.2',             |  | 
+ |  |   T. Sjostrand et al, Comput. Phys. Commun. 191 (2015) 159                   |  | 
+ |  |   [arXiv:1410.3012 [hep-ph]]                                                 |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]  |  | 
+ |  |                                                                              |  | 
+ |  |   An archive of program versions and documentation is found on the web:      |  | 
+ |  |   http://www.thep.lu.se/Pythia                                               |  | 
+ |  |                                                                              |  | 
+ |  |   This program is released under the GNU General Public Licence version 2.   |  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2018 Torbjorn Sjostrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+LHAPDF 6.2.1 loading /exp/seaquest/app/software/osg/software/e1039/share/20240816/share/LHAPDF/CT10nlo/CT10nlo_0000.dat
+CT10nlo PDF set, member #0, version 4; LHAPDF ID = 11000
+
+*************************************************************
+ Geant4 version Name: geant4-10-01-patch-03    (5-February-2016)
+                      Copyright : Geant4 Collaboration
+                      Reference : NIM A 506 (2003), 250-303
+                            WWW : http://cern.ch/geant4
+*************************************************************
+
+<<< Geant4 Physics List simulation engine: FTFP_BERT 2.0
+
+Fun4AllServer: Runnumber forced to 4453 by RUNNUMBER IntFlag
+PHFieldConfig_v3::PHFieldConfig_v3:
+ from file1 [/exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Fmag.root]
+  and file2 [/exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Kmag.root]
+scale1: -1.04400, scale2: -1.02500, targetmag_y: 5.00000
+PHFieldUtility::GetFieldConfigNode - field map with configuration from input default: PHFieldConfig_v3::identify - Field type of [Sea Quest: SeaQuest Field: 2 3D Cartesian]
+ from file1 [/exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Fmag.root]
+  and file2 [/exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Kmag.root]
+scale1: -1.04400, scale2: -1.02500, targetmag_y: 5.00000
+scale1: -1.04400, scale2: -1.02500, targetmag_y: 5.00000
+
+
+================ Begin Construct Mag Field =====================
+
+-----------------------------------------------------------
+      Magnetic field Module - Verbosity:
+-----------------------------------------------------------
+SQField3DCartesian: loading field map from ROOT file /exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Fmag.root
+  its demensions and ranges of the field: 1157123
+    X: 131 bins, -330.20001 cm -- 330.20001 cm, step size = 5.08000 cm.
+    Y: 121 bins, -304.79999 cm -- 304.79999 cm, step size = 5.08000 cm.
+    Z: 73 bins, -203.20000 cm -- 711.20001 cm, step size = 12.70000 cm.
+
+================= End Construct Mag Field ======================
+
+
+================ Begin Construct Mag Field =====================
+
+-----------------------------------------------------------
+      Magnetic field Module - Verbosity:
+-----------------------------------------------------------
+SQField3DCartesian: loading field map from ROOT file /exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Kmag.root
+  its demensions and ranges of the field: 146853
+    X: 49 bins, -304.79999 cm -- 304.79999 cm, step size = 12.70000 cm.
+    Y: 37 bins, -228.60001 cm -- 228.60001 cm, step size = 12.70000 cm.
+    Z: 81 bins, -508.00000 cm -- 508.00000 cm, step size = 12.70000 cm.
+
+================= End Construct Mag Field ======================
+
+PHFieldRegionalConst::identify: {0.00000, 0.00000, 0.00000}	 {5.00000}
+SQDipoleMagnet - begin construction of fmag from $E1039_RESOURCE/geometry/magnetic_fields/magnet_geom.db
+SQDipoleMagnet - begin construction of kmag from $E1039_RESOURCE/geometry/magnetic_fields/magnet_geom.db
+PHG4TargetCoilV2Detector::Construct:  Material:     Coil    density:  6.110 g/cm3   RadL:   2.021 cm   Nucl.Int.Length:  23.049 cm 
+                       Imean: 311.075 eV 
+
+   --->  Element: Nb (Nb)   Z = 41.0   N =  93.0   A =  92.91 g/mole
+         --->  Isotope:  Nb93   Z = 41   N =  93   A =  92.91 g/mole   abundance: 100.00 %
+          ElmMassFraction:  45.00 %  ElmAbundance  30.62 % 
+
+   --->  Element: Ti (Ti)   Z = 22.0   N =  47.9   A =  47.87 g/mole
+         --->  Isotope:  Ti46   Z = 22   N =  46   A =  45.95 g/mole   abundance:   8.25 %
+         --->  Isotope:  Ti47   Z = 22   N =  47   A =  46.95 g/mole   abundance:   7.44 %
+         --->  Isotope:  Ti48   Z = 22   N =  48   A =  47.95 g/mole   abundance:  73.72 %
+         --->  Isotope:  Ti49   Z = 22   N =  49   A =  48.95 g/mole   abundance:   5.41 %
+         --->  Isotope:  Ti50   Z = 22   N =  50   A =  49.94 g/mole   abundance:   5.18 %
+          ElmMassFraction:  45.00 %  ElmAbundance  59.43 % 
+
+   --->  Element: Cu (Cu)   Z = 29.0   N =  63.6   A =  63.55 g/mole
+         --->  Isotope:  Cu63   Z = 29   N =  63   A =  62.93 g/mole   abundance:  69.17 %
+         --->  Isotope:  Cu65   Z = 29   N =  65   A =  64.93 g/mole   abundance:  30.83 %
+          ElmMassFraction:  10.00 %  ElmAbundance   9.95 % 
+
+PHG4TargetCoilV2Detector::Construct:  Material:   SS316L    density:  7.950 g/cm3   RadL:   1.707 cm   Nucl.Int.Length:  16.915 cm 
+                       Imean: 288.933 eV 
+
+   --->  Element: Fe (Fe)   Z = 26.0   N =  55.9   A =  55.85 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction:  60.00 %  ElmAbundance  60.81 % 
+
+   --->  Element: Cr (Cr)   Z = 24.0   N =  52.1   A =  52.00 g/mole
+         --->  Isotope:  Cr50   Z = 24   N =  50   A =  49.95 g/mole   abundance:   4.34 %
+         --->  Isotope:  Cr52   Z = 24   N =  52   A =  51.94 g/mole   abundance:  83.79 %
+         --->  Isotope:  Cr53   Z = 24   N =  53   A =  52.94 g/mole   abundance:   9.50 %
+         --->  Isotope:  Cr54   Z = 24   N =  54   A =  53.94 g/mole   abundance:   2.37 %
+          ElmMassFraction:  20.00 %  ElmAbundance  21.77 % 
+
+   --->  Element: Ni (Ni)   Z = 28.0   N =  58.8   A =  58.69 g/mole
+         --->  Isotope:  Ni58   Z = 28   N =  58   A =  57.94 g/mole   abundance:  68.08 %
+         --->  Isotope:  Ni60   Z = 28   N =  60   A =  59.93 g/mole   abundance:  26.22 %
+         --->  Isotope:  Ni61   Z = 28   N =  61   A =  60.93 g/mole   abundance:   1.14 %
+         --->  Isotope:  Ni62   Z = 28   N =  62   A =  61.93 g/mole   abundance:   3.63 %
+         --->  Isotope:  Ni64   Z = 28   N =  64   A =  63.93 g/mole   abundance:   0.93 %
+          ElmMassFraction:  15.00 %  ElmAbundance  14.47 % 
+
+   --->  Element: Mo (Mo)   Z = 42.0   N =  96.0   A =  95.93 g/mole
+         --->  Isotope:  Mo92   Z = 42   N =  92   A =  91.91 g/mole   abundance:  14.84 %
+         --->  Isotope:  Mo94   Z = 42   N =  94   A =  93.91 g/mole   abundance:   9.25 %
+         --->  Isotope:  Mo95   Z = 42   N =  95   A =  94.91 g/mole   abundance:  15.92 %
+         --->  Isotope:  Mo96   Z = 42   N =  96   A =  95.90 g/mole   abundance:  16.68 %
+         --->  Isotope:  Mo97   Z = 42   N =  97   A =  96.91 g/mole   abundance:   9.55 %
+         --->  Isotope:  Mo98   Z = 42   N =  98   A =  97.91 g/mole   abundance:  24.13 %
+         --->  Isotope: Mo100   Z = 42   N = 100   A =  99.91 g/mole   abundance:   9.63 %
+          ElmMassFraction:   5.00 %  ElmAbundance   2.95 % 
+
+Parameters for Coil_0
+int parameters: 
+absorberactive: 0
+absorbertruth: 0
+active: 0
+blackhole: 0
+lengthviarapidity: 1
+lightyield: 0
+num_z_planes: 6
+use_g4steps: 1
+double parameters: 
+length: 470.08048
+place_x: 0.00000
+place_y: 13.35000
+place_z: -300.00000
+radius: 100.00000
+rot_x: 90.00000
+rot_y: 0.00000
+rot_z: 0.00000
+steplimits: nan
+thickness: 100.00000
+tmax: nan
+tmin: nan
+string parameters: 
+material: G4_Galactic
+
+   [ (    1.000000      0.000000      0.000000)
+     (    0.000000      0.000000     -1.000000)
+     (    0.000000      1.000000      0.000000) ]
+G4Material WARNING: duplicate name of material G4_lHe
+G4Material WARNING: duplicate name of material Coil
+PHG4TargetCoilV2Detector::Construct:  Material:     Coil    density:  6.110 g/cm3   RadL:   2.021 cm   Nucl.Int.Length:  23.049 cm 
+                       Imean: 311.075 eV 
+
+   --->  Element: Nb (Nb)   Z = 41.0   N =  93.0   A =  92.91 g/mole
+         --->  Isotope:  Nb93   Z = 41   N =  93   A =  92.91 g/mole   abundance: 100.00 %
+          ElmMassFraction:  45.00 %  ElmAbundance  30.62 % 
+
+   --->  Element: Ti (Ti)   Z = 22.0   N =  47.9   A =  47.87 g/mole
+         --->  Isotope:  Ti46   Z = 22   N =  46   A =  45.95 g/mole   abundance:   8.25 %
+         --->  Isotope:  Ti47   Z = 22   N =  47   A =  46.95 g/mole   abundance:   7.44 %
+         --->  Isotope:  Ti48   Z = 22   N =  48   A =  47.95 g/mole   abundance:  73.72 %
+         --->  Isotope:  Ti49   Z = 22   N =  49   A =  48.95 g/mole   abundance:   5.41 %
+         --->  Isotope:  Ti50   Z = 22   N =  50   A =  49.94 g/mole   abundance:   5.18 %
+          ElmMassFraction:  45.00 %  ElmAbundance  59.43 % 
+
+   --->  Element: Cu (Cu)   Z = 29.0   N =  63.6   A =  63.55 g/mole
+         --->  Isotope:  Cu63   Z = 29   N =  63   A =  62.93 g/mole   abundance:  69.17 %
+         --->  Isotope:  Cu65   Z = 29   N =  65   A =  64.93 g/mole   abundance:  30.83 %
+          ElmMassFraction:  10.00 %  ElmAbundance   9.95 % 
+
+G4Material WARNING: duplicate name of material SS316L
+PHG4TargetCoilV2Detector::Construct:  Material:   SS316L    density:  7.950 g/cm3   RadL:   1.707 cm   Nucl.Int.Length:  16.915 cm 
+                       Imean: 288.933 eV 
+
+   --->  Element: Fe (Fe)   Z = 26.0   N =  55.9   A =  55.85 g/mole
+         --->  Isotope:  Fe54   Z = 26   N =  54   A =  53.94 g/mole   abundance:   5.84 %
+         --->  Isotope:  Fe56   Z = 26   N =  56   A =  55.93 g/mole   abundance:  91.75 %
+         --->  Isotope:  Fe57   Z = 26   N =  57   A =  56.94 g/mole   abundance:   2.12 %
+         --->  Isotope:  Fe58   Z = 26   N =  58   A =  57.93 g/mole   abundance:   0.28 %
+          ElmMassFraction:  60.00 %  ElmAbundance  60.81 % 
+
+   --->  Element: Cr (Cr)   Z = 24.0   N =  52.1   A =  52.00 g/mole
+         --->  Isotope:  Cr50   Z = 24   N =  50   A =  49.95 g/mole   abundance:   4.34 %
+         --->  Isotope:  Cr52   Z = 24   N =  52   A =  51.94 g/mole   abundance:  83.79 %
+         --->  Isotope:  Cr53   Z = 24   N =  53   A =  52.94 g/mole   abundance:   9.50 %
+         --->  Isotope:  Cr54   Z = 24   N =  54   A =  53.94 g/mole   abundance:   2.37 %
+          ElmMassFraction:  20.00 %  ElmAbundance  21.77 % 
+
+   --->  Element: Ni (Ni)   Z = 28.0   N =  58.8   A =  58.69 g/mole
+         --->  Isotope:  Ni58   Z = 28   N =  58   A =  57.94 g/mole   abundance:  68.08 %
+         --->  Isotope:  Ni60   Z = 28   N =  60   A =  59.93 g/mole   abundance:  26.22 %
+         --->  Isotope:  Ni61   Z = 28   N =  61   A =  60.93 g/mole   abundance:   1.14 %
+         --->  Isotope:  Ni62   Z = 28   N =  62   A =  61.93 g/mole   abundance:   3.63 %
+         --->  Isotope:  Ni64   Z = 28   N =  64   A =  63.93 g/mole   abundance:   0.93 %
+          ElmMassFraction:  15.00 %  ElmAbundance  14.47 % 
+
+   --->  Element: Mo (Mo)   Z = 42.0   N =  96.0   A =  95.93 g/mole
+         --->  Isotope:  Mo92   Z = 42   N =  92   A =  91.91 g/mole   abundance:  14.84 %
+         --->  Isotope:  Mo94   Z = 42   N =  94   A =  93.91 g/mole   abundance:   9.25 %
+         --->  Isotope:  Mo95   Z = 42   N =  95   A =  94.91 g/mole   abundance:  15.92 %
+         --->  Isotope:  Mo96   Z = 42   N =  96   A =  95.90 g/mole   abundance:  16.68 %
+         --->  Isotope:  Mo97   Z = 42   N =  97   A =  96.91 g/mole   abundance:   9.55 %
+         --->  Isotope:  Mo98   Z = 42   N =  98   A =  97.91 g/mole   abundance:  24.13 %
+         --->  Isotope: Mo100   Z = 42   N = 100   A =  99.91 g/mole   abundance:   9.63 %
+          ElmMassFraction:   5.00 %  ElmAbundance   2.95 % 
+
+Parameters for Coil_1
+int parameters: 
+absorberactive: 0
+absorbertruth: 0
+active: 0
+blackhole: 0
+lengthviarapidity: 1
+lightyield: 0
+num_z_planes: 6
+use_g4steps: 1
+double parameters: 
+length: 470.080477
+place_x: 0.000000
+place_y: -13.350000
+place_z: -300.000000
+radius: 100.000000
+rot_x: -90.000000
+rot_y: 0.000000
+rot_z: 0.000000
+steplimits: nan
+thickness: 100.000000
+tmax: nan
+tmin: nan
+string parameters: 
+material: G4_Galactic
+
+   [ (    1.000000      0.000000      0.000000)
+     (    0.000000      0.000000      1.000000)
+     (    0.000000     -1.000000      0.000000) ]
+G4Material WARNING: duplicate name of material G4_lHe
+DEBUG:  Material:   Target    density: 578.000 mg/cm3  RadL:  74.959 cm   Nucl.Int.Length:   1.142 m  
+                       Imean:  51.966 eV 
+
+   --->  Element: Nitrogen (N)   Z =  7.0   N =  14.0   A =  14.00 g/mole
+         --->  Isotope:   N14   Z =  7   N =  14   A =  14.00 g/mole   abundance:  99.63 %
+         --->  Isotope:   N15   Z =  7   N =  15   A =  15.00 g/mole   abundance:   0.37 %
+          ElmMassFraction:  73.99 %  ElmAbundance  22.36 % 
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =   1.0   A =   1.01 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance:  99.99 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:   0.01 %
+          ElmMassFraction:  16.01 %  ElmAbundance  67.07 % 
+
+   --->  Element: Helium (He)   Z =  2.0   N =   4.0   A =   4.00 g/mole
+         --->  Isotope:   He3   Z =  2   N =   3   A =   3.02 g/mole   abundance:   0.00 %
+         --->  Isotope:   He4   Z =  2   N =   4   A =   4.00 g/mole   abundance: 100.00 %
+          ElmMassFraction:  10.00 %  ElmAbundance  10.57 % 
+
+Parameters for Target_0
+int parameters: 
+absorberactive: 0
+absorbertruth: 0
+active: 0
+blackhole: 0
+lengthviarapidity: 0
+lightyield: 0
+use_g4steps: 1
+double parameters: 
+length: 7.900000
+place_x: 0.000000
+place_y: 0.000000
+place_z: -300.000000
+radius: 0.000000
+rot_x: 0.000000
+rot_y: 0.000000
+rot_z: 0.000000
+steplimits: nan
+thickness: 1.000000
+tmax: nan
+tmin: nan
+string parameters: 
+material: Target
+
+   [ (    1.000000      0.000000      0.000000)
+     (    0.000000      1.000000      0.000000)
+     (    0.000000      0.000000      1.000000) ]
+PHG4Reco::InitRun - export geometry to DST via tmp file /tmp/PHGeomUtility_geom_file_639078.gdml
+PHG4GDML: Writing '/tmp/PHGeomUtility_geom_file_639078.gdml'...
+PHG4GDML: Writing definitions...
+G4GDML: Writing materials...
+PHG4GDML: Writing solids...
+PHG4GDML: Writing structure...
+G4GDML: Writing setup...
+PHG4GDML: Writing surfaces...
+PHG4GDML: Writing '/tmp/PHGeomUtility_geom_file_639078.gdml' done !
+TruthNodeMaker: failed locating HepMCGenEvent, event process info will be missing
+TruthNodeMaker: failed locating rec event, no truth track tagging.
+PHTFileServer::open - opening file eval.root (RECREATE)
+PHFieldConfig_v3::PHFieldConfig_v3:
+ from file1 [/exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Fmag.root]
+  and file2 [/exp/seaquest/app/software/osg/software/e1039/resource/geometry/magnetic_fields/Kmag.root]
+scale1: -1.04400, scale2: -1.02500, targetmag_y: 5.00000
+--------------------------------------
+
+List of Nodes in Fun4AllServer:
+Node Tree under TopNode TOP
+TOP (PHCompositeNode)/
+   DST (PHCompositeNode)/
+      PHG4INEVENT (IO,PHG4InEvent)
+      SQEvent (IO,SQEvent_v1)
+      SQMCEvent (IO,SQMCEvent_v1)
+      SQTruthDimuonVector (IO,SQDimuonVector_v1)
+      G4HIT_D0U (IO,PHG4HitContainer)
+      G4HIT_D0Up (IO,PHG4HitContainer)
+      G4HIT_D0X (IO,PHG4HitContainer)
+      G4HIT_D0Xp (IO,PHG4HitContainer)
+      G4HIT_D0V (IO,PHG4HitContainer)
+      G4HIT_D0Vp (IO,PHG4HitContainer)
+      G4HIT_D2V (IO,PHG4HitContainer)
+      G4HIT_D2Vp (IO,PHG4HitContainer)
+      G4HIT_D2Xp (IO,PHG4HitContainer)
+      G4HIT_D2X (IO,PHG4HitContainer)
+      G4HIT_D2U (IO,PHG4HitContainer)
+      G4HIT_D2Up (IO,PHG4HitContainer)
+      G4HIT_D3pVp (IO,PHG4HitContainer)
+      G4HIT_D3pV (IO,PHG4HitContainer)
+      G4HIT_D3pXp (IO,PHG4HitContainer)
+      G4HIT_D3pX (IO,PHG4HitContainer)
+      G4HIT_D3pUp (IO,PHG4HitContainer)
+      G4HIT_D3pU (IO,PHG4HitContainer)
+      G4HIT_D3mVp (IO,PHG4HitContainer)
+      G4HIT_D3mV (IO,PHG4HitContainer)
+      G4HIT_D3mXp (IO,PHG4HitContainer)
+      G4HIT_D3mX (IO,PHG4HitContainer)
+      G4HIT_D3mUp (IO,PHG4HitContainer)
+      G4HIT_D3mU (IO,PHG4HitContainer)
+      G4HIT_H1B (IO,PHG4HitContainer)
+      G4HIT_H1T (IO,PHG4HitContainer)
+      G4HIT_H1L (IO,PHG4HitContainer)
+      G4HIT_H1R (IO,PHG4HitContainer)
+      G4HIT_H2L (IO,PHG4HitContainer)
+      G4HIT_H2R (IO,PHG4HitContainer)
+      G4HIT_H2B (IO,PHG4HitContainer)
+      G4HIT_H2T (IO,PHG4HitContainer)
+      G4HIT_H3B (IO,PHG4HitContainer)
+      G4HIT_H3T (IO,PHG4HitContainer)
+      G4HIT_H4Y1L (IO,PHG4HitContainer)
+      G4HIT_H4Y1R (IO,PHG4HitContainer)
+      G4HIT_H4Y2L (IO,PHG4HitContainer)
+      G4HIT_H4Y2R (IO,PHG4HitContainer)
+      G4HIT_H4B (IO,PHG4HitContainer)
+      G4HIT_H4T (IO,PHG4HitContainer)
+      G4HIT_P1Y1 (IO,PHG4HitContainer)
+      G4HIT_P1Y2 (IO,PHG4HitContainer)
+      G4HIT_P1X1 (IO,PHG4HitContainer)
+      G4HIT_P1X2 (IO,PHG4HitContainer)
+      G4HIT_P2X1 (IO,PHG4HitContainer)
+      G4HIT_P2X2 (IO,PHG4HitContainer)
+      G4HIT_P2Y1 (IO,PHG4HitContainer)
+      G4HIT_P2Y2 (IO,PHG4HitContainer)
+      G4HIT_DP1TL (IO,PHG4HitContainer)
+      G4HIT_DP1TR (IO,PHG4HitContainer)
+      G4HIT_DP1BL (IO,PHG4HitContainer)
+      G4HIT_DP1BR (IO,PHG4HitContainer)
+      G4HIT_DP2TL (IO,PHG4HitContainer)
+      G4HIT_DP2TR (IO,PHG4HitContainer)
+      G4HIT_DP2BL (IO,PHG4HitContainer)
+      G4HIT_DP2BR (IO,PHG4HitContainer)
+      G4TruthInfo (IO,PHG4TruthInfoContainer)
+      SQHitVector (IO,SQHitVector_v1)
+      SQTruthTrackVector (IO,SQTrackVector_v1)
+      SRecEvent (IO,SRecEvent)
+   RUN (PHCompositeNode)/
+      PHGenIntegral (IO,PHGenIntegralv1)
+      FIELD_CONFIG (IO,PHFieldConfig_v3)
+      G4GEOPARAM_Shielding1_0 (IO,PdbParameterMapContainer)
+      G4GEOPARAM_Shielding2_0 (IO,PdbParameterMapContainer)
+      G4GEOPARAM_Shielding3_0 (IO,PdbParameterMapContainer)
+      G4GEOPARAM_fmag_0 (IO,PdbParameterMapContainer)
+      G4GEOPARAM_kmag_0 (IO,PdbParameterMapContainer)
+      MUID_absorber (PHCompositeNode)/
+         G4GEOPARAM_MUID_absorber (IO,PdbParameterMapContainer)
+      Collimator (PHCompositeNode)/
+         G4GEOPARAM_Collimator (IO,PdbParameterMapContainer)
+      Coil (PHCompositeNode)/
+         G4GEOPARAM_Coil (IO,PdbParameterMapContainer)
+      Target (PHCompositeNode)/
+         G4GEOPARAM_Target (IO,PdbParameterMapContainer)
+      D0U (PHCompositeNode)/
+         G4GEOPARAM_D0U (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D0U (IO,PHG4BlockGeomContainer)
+      D0Up (PHCompositeNode)/
+         G4GEOPARAM_D0Up (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D0Up (IO,PHG4BlockGeomContainer)
+      D0X (PHCompositeNode)/
+         G4GEOPARAM_D0X (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D0X (IO,PHG4BlockGeomContainer)
+      D0Xp (PHCompositeNode)/
+         G4GEOPARAM_D0Xp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D0Xp (IO,PHG4BlockGeomContainer)
+      D0V (PHCompositeNode)/
+         G4GEOPARAM_D0V (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D0V (IO,PHG4BlockGeomContainer)
+      D0Vp (PHCompositeNode)/
+         G4GEOPARAM_D0Vp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D0Vp (IO,PHG4BlockGeomContainer)
+      D2V (PHCompositeNode)/
+         G4GEOPARAM_D2V (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D2V (IO,PHG4BlockGeomContainer)
+      D2Vp (PHCompositeNode)/
+         G4GEOPARAM_D2Vp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D2Vp (IO,PHG4BlockGeomContainer)
+      D2Xp (PHCompositeNode)/
+         G4GEOPARAM_D2Xp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D2Xp (IO,PHG4BlockGeomContainer)
+      D2X (PHCompositeNode)/
+         G4GEOPARAM_D2X (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D2X (IO,PHG4BlockGeomContainer)
+      D2U (PHCompositeNode)/
+         G4GEOPARAM_D2U (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D2U (IO,PHG4BlockGeomContainer)
+      D2Up (PHCompositeNode)/
+         G4GEOPARAM_D2Up (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D2Up (IO,PHG4BlockGeomContainer)
+      D3pVp (PHCompositeNode)/
+         G4GEOPARAM_D3pVp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3pVp (IO,PHG4BlockGeomContainer)
+      D3pV (PHCompositeNode)/
+         G4GEOPARAM_D3pV (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3pV (IO,PHG4BlockGeomContainer)
+      D3pXp (PHCompositeNode)/
+         G4GEOPARAM_D3pXp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3pXp (IO,PHG4BlockGeomContainer)
+      D3pX (PHCompositeNode)/
+         G4GEOPARAM_D3pX (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3pX (IO,PHG4BlockGeomContainer)
+      D3pUp (PHCompositeNode)/
+         G4GEOPARAM_D3pUp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3pUp (IO,PHG4BlockGeomContainer)
+      D3pU (PHCompositeNode)/
+         G4GEOPARAM_D3pU (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3pU (IO,PHG4BlockGeomContainer)
+      D3mVp (PHCompositeNode)/
+         G4GEOPARAM_D3mVp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3mVp (IO,PHG4BlockGeomContainer)
+      D3mV (PHCompositeNode)/
+         G4GEOPARAM_D3mV (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3mV (IO,PHG4BlockGeomContainer)
+      D3mXp (PHCompositeNode)/
+         G4GEOPARAM_D3mXp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3mXp (IO,PHG4BlockGeomContainer)
+      D3mX (PHCompositeNode)/
+         G4GEOPARAM_D3mX (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3mX (IO,PHG4BlockGeomContainer)
+      D3mUp (PHCompositeNode)/
+         G4GEOPARAM_D3mUp (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3mUp (IO,PHG4BlockGeomContainer)
+      D3mU (PHCompositeNode)/
+         G4GEOPARAM_D3mU (IO,PdbParameterMapContainer)
+      BLOCKGEOM_D3mU (IO,PHG4BlockGeomContainer)
+      H1B (PHCompositeNode)/
+         G4GEOPARAM_H1B (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H1B (IO,PHG4BlockGeomContainer)
+      H1T (PHCompositeNode)/
+         G4GEOPARAM_H1T (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H1T (IO,PHG4BlockGeomContainer)
+      H1L (PHCompositeNode)/
+         G4GEOPARAM_H1L (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H1L (IO,PHG4BlockGeomContainer)
+      H1R (PHCompositeNode)/
+         G4GEOPARAM_H1R (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H1R (IO,PHG4BlockGeomContainer)
+      H2L (PHCompositeNode)/
+         G4GEOPARAM_H2L (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H2L (IO,PHG4BlockGeomContainer)
+      H2R (PHCompositeNode)/
+         G4GEOPARAM_H2R (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H2R (IO,PHG4BlockGeomContainer)
+      H2B (PHCompositeNode)/
+         G4GEOPARAM_H2B (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H2B (IO,PHG4BlockGeomContainer)
+      H2T (PHCompositeNode)/
+         G4GEOPARAM_H2T (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H2T (IO,PHG4BlockGeomContainer)
+      H3B (PHCompositeNode)/
+         G4GEOPARAM_H3B (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H3B (IO,PHG4BlockGeomContainer)
+      H3T (PHCompositeNode)/
+         G4GEOPARAM_H3T (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H3T (IO,PHG4BlockGeomContainer)
+      H4Y1L (PHCompositeNode)/
+         G4GEOPARAM_H4Y1L (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H4Y1L (IO,PHG4BlockGeomContainer)
+      H4Y1R (PHCompositeNode)/
+         G4GEOPARAM_H4Y1R (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H4Y1R (IO,PHG4BlockGeomContainer)
+      H4Y2L (PHCompositeNode)/
+         G4GEOPARAM_H4Y2L (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H4Y2L (IO,PHG4BlockGeomContainer)
+      H4Y2R (PHCompositeNode)/
+         G4GEOPARAM_H4Y2R (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H4Y2R (IO,PHG4BlockGeomContainer)
+      H4B (PHCompositeNode)/
+         G4GEOPARAM_H4B (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H4B (IO,PHG4BlockGeomContainer)
+      H4T (PHCompositeNode)/
+         G4GEOPARAM_H4T (IO,PdbParameterMapContainer)
+      BLOCKGEOM_H4T (IO,PHG4BlockGeomContainer)
+      P1Y1 (PHCompositeNode)/
+         G4GEOPARAM_P1Y1 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P1Y1 (IO,PHG4BlockGeomContainer)
+      P1Y2 (PHCompositeNode)/
+         G4GEOPARAM_P1Y2 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P1Y2 (IO,PHG4BlockGeomContainer)
+      P1X1 (PHCompositeNode)/
+         G4GEOPARAM_P1X1 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P1X1 (IO,PHG4BlockGeomContainer)
+      P1X2 (PHCompositeNode)/
+         G4GEOPARAM_P1X2 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P1X2 (IO,PHG4BlockGeomContainer)
+      P2X1 (PHCompositeNode)/
+         G4GEOPARAM_P2X1 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P2X1 (IO,PHG4BlockGeomContainer)
+      P2X2 (PHCompositeNode)/
+         G4GEOPARAM_P2X2 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P2X2 (IO,PHG4BlockGeomContainer)
+      P2Y1 (PHCompositeNode)/
+         G4GEOPARAM_P2Y1 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P2Y1 (IO,PHG4BlockGeomContainer)
+      P2Y2 (PHCompositeNode)/
+         G4GEOPARAM_P2Y2 (IO,PdbParameterMapContainer)
+      BLOCKGEOM_P2Y2 (IO,PHG4BlockGeomContainer)
+      DP1TL (PHCompositeNode)/
+         G4GEOPARAM_DP1TL (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP1TL (IO,PHG4BlockGeomContainer)
+      DP1TR (PHCompositeNode)/
+         G4GEOPARAM_DP1TR (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP1TR (IO,PHG4BlockGeomContainer)
+      DP1BL (PHCompositeNode)/
+         G4GEOPARAM_DP1BL (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP1BL (IO,PHG4BlockGeomContainer)
+      DP1BR (PHCompositeNode)/
+         G4GEOPARAM_DP1BR (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP1BR (IO,PHG4BlockGeomContainer)
+      DP2TL (PHCompositeNode)/
+         G4GEOPARAM_DP2TL (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP2TL (IO,PHG4BlockGeomContainer)
+      DP2TR (PHCompositeNode)/
+         G4GEOPARAM_DP2TR (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP2TR (IO,PHG4BlockGeomContainer)
+      DP2BL (PHCompositeNode)/
+         G4GEOPARAM_DP2BL (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP2BL (IO,PHG4BlockGeomContainer)
+      DP2BR (PHCompositeNode)/
+         G4GEOPARAM_DP2BR (IO,PdbParameterMapContainer)
+      BLOCKGEOM_DP2BR (IO,PHG4BlockGeomContainer)
+      SQRun (IO,SQRun_v1)
+      GEOMETRY_IO (IO,PHGeomIOTGeo)
+   PAR (PHCompositeNode)/
+      FIELD_MAP (PHDataNode)
+      G4GEO_Shielding1_0 (PHDataNode)
+      G4GEO_Shielding2_0 (PHDataNode)
+      G4GEO_Shielding3_0 (PHDataNode)
+      G4GEO_fmag_0 (PHDataNode)
+      G4GEO_kmag_0 (PHDataNode)
+      MUID_absorber (PHCompositeNode)/
+         G4GEO_MUID_absorber (PHDataNode)
+      Collimator (PHCompositeNode)/
+         G4GEO_Collimator (PHDataNode)
+      Coil (PHCompositeNode)/
+         G4GEO_Coil (PHDataNode)
+      Target (PHCompositeNode)/
+         G4GEO_Target (PHDataNode)
+      D0U (PHCompositeNode)/
+         G4GEO_D0U (PHDataNode)
+      D0Up (PHCompositeNode)/
+         G4GEO_D0Up (PHDataNode)
+      D0X (PHCompositeNode)/
+         G4GEO_D0X (PHDataNode)
+      D0Xp (PHCompositeNode)/
+         G4GEO_D0Xp (PHDataNode)
+      D0V (PHCompositeNode)/
+         G4GEO_D0V (PHDataNode)
+      D0Vp (PHCompositeNode)/
+         G4GEO_D0Vp (PHDataNode)
+      D2V (PHCompositeNode)/
+         G4GEO_D2V (PHDataNode)
+      D2Vp (PHCompositeNode)/
+         G4GEO_D2Vp (PHDataNode)
+      D2Xp (PHCompositeNode)/
+         G4GEO_D2Xp (PHDataNode)
+      D2X (PHCompositeNode)/
+         G4GEO_D2X (PHDataNode)
+      D2U (PHCompositeNode)/
+         G4GEO_D2U (PHDataNode)
+      D2Up (PHCompositeNode)/
+         G4GEO_D2Up (PHDataNode)
+      D3pVp (PHCompositeNode)/
+         G4GEO_D3pVp (PHDataNode)
+      D3pV (PHCompositeNode)/
+         G4GEO_D3pV (PHDataNode)
+      D3pXp (PHCompositeNode)/
+         G4GEO_D3pXp (PHDataNode)
+      D3pX (PHCompositeNode)/
+         G4GEO_D3pX (PHDataNode)
+      D3pUp (PHCompositeNode)/
+         G4GEO_D3pUp (PHDataNode)
+      D3pU (PHCompositeNode)/
+         G4GEO_D3pU (PHDataNode)
+      D3mVp (PHCompositeNode)/
+         G4GEO_D3mVp (PHDataNode)
+      D3mV (PHCompositeNode)/
+         G4GEO_D3mV (PHDataNode)
+      D3mXp (PHCompositeNode)/
+         G4GEO_D3mXp (PHDataNode)
+      D3mX (PHCompositeNode)/
+         G4GEO_D3mX (PHDataNode)
+      D3mUp (PHCompositeNode)/
+         G4GEO_D3mUp (PHDataNode)
+      D3mU (PHCompositeNode)/
+         G4GEO_D3mU (PHDataNode)
+      H1B (PHCompositeNode)/
+         G4GEO_H1B (PHDataNode)
+      H1T (PHCompositeNode)/
+         G4GEO_H1T (PHDataNode)
+      H1L (PHCompositeNode)/
+         G4GEO_H1L (PHDataNode)
+      H1R (PHCompositeNode)/
+         G4GEO_H1R (PHDataNode)
+      H2L (PHCompositeNode)/
+         G4GEO_H2L (PHDataNode)
+      H2R (PHCompositeNode)/
+         G4GEO_H2R (PHDataNode)
+      H2B (PHCompositeNode)/
+         G4GEO_H2B (PHDataNode)
+      H2T (PHCompositeNode)/
+         G4GEO_H2T (PHDataNode)
+      H3B (PHCompositeNode)/
+         G4GEO_H3B (PHDataNode)
+      H3T (PHCompositeNode)/
+         G4GEO_H3T (PHDataNode)
+      H4Y1L (PHCompositeNode)/
+         G4GEO_H4Y1L (PHDataNode)
+      H4Y1R (PHCompositeNode)/
+         G4GEO_H4Y1R (PHDataNode)
+      H4Y2L (PHCompositeNode)/
+         G4GEO_H4Y2L (PHDataNode)
+      H4Y2R (PHCompositeNode)/
+         G4GEO_H4Y2R (PHDataNode)
+      H4B (PHCompositeNode)/
+         G4GEO_H4B (PHDataNode)
+      H4T (PHCompositeNode)/
+         G4GEO_H4T (PHDataNode)
+      P1Y1 (PHCompositeNode)/
+         G4GEO_P1Y1 (PHDataNode)
+      P1Y2 (PHCompositeNode)/
+         G4GEO_P1Y2 (PHDataNode)
+      P1X1 (PHCompositeNode)/
+         G4GEO_P1X1 (PHDataNode)
+      P1X2 (PHCompositeNode)/
+         G4GEO_P1X2 (PHDataNode)
+      P2X1 (PHCompositeNode)/
+         G4GEO_P2X1 (PHDataNode)
+      P2X2 (PHCompositeNode)/
+         G4GEO_P2X2 (PHDataNode)
+      P2Y1 (PHCompositeNode)/
+         G4GEO_P2Y1 (PHDataNode)
+      P2Y2 (PHCompositeNode)/
+         G4GEO_P2Y2 (PHDataNode)
+      DP1TL (PHCompositeNode)/
+         G4GEO_DP1TL (PHDataNode)
+      DP1TR (PHCompositeNode)/
+         G4GEO_DP1TR (PHDataNode)
+      DP1BL (PHCompositeNode)/
+         G4GEO_DP1BL (PHDataNode)
+      DP1BR (PHCompositeNode)/
+         G4GEO_DP1BR (PHDataNode)
+      DP2TL (PHCompositeNode)/
+         G4GEO_DP2TL (PHDataNode)
+      DP2TR (PHCompositeNode)/
+         G4GEO_DP2TR (PHDataNode)
+      DP2BL (PHCompositeNode)/
+         G4GEO_DP2BL (PHDataNode)
+      DP2BR (PHCompositeNode)/
+         G4GEO_DP2BR (PHDataNode)
+      G4GDML_CONFIG (PHDataNode)
+      GEOMETRY (PHDataNode)
+
+
+SQPrimaryVertexGen::init(): mode = Target, z = -303.95000...-296.05000.
+  Timer2: AnaSimpleTree_TOP                 0.07107 ms *      500 =        0 s
+  Timer2: DPDigitizer_TOP                   0.15629 ms *      500 =        0 s
+  Timer2: DPTriggerAnalyzer_TOP             0.06329 ms *      500 =        0 s
+  Timer2: PHG4RECO_TOP                    167.99335 ms *      500 =       84 s
+  Timer2: PrimaryGen_TOP                    0.07296 ms *      500 =        0 s
+  Timer2: SQReco_TOP                        4.12896 ms *      500 =        2 s
+  Timer2: TruthNodeMaker_TOP                0.05690 ms *      500 =        0 s
+  Timer2: VertexFit_TOP                     0.00919 ms *      500 =        0 s
+  Timer2: process_event_01_prep             0.00030 ms *      500 =        0 s
+  Timer2: process_event_02_subsys         172.62716 ms *      500 =       86 s
+  Timer2: process_event_03_output           2.14386 ms *      500 =        1 s
+  Timer2: process_event_04_reset            0.63221 ms *      500 =        0 s
+All done
+Thanks for using LHAPDF 6.2.1. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
+
+real	2m1.272s
+user	1m5.326s
+sys	0m1.266s
+gridrun.sh finished!

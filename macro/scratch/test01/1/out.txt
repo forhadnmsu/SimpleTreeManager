@@ -1,0 +1,18 @@
+hello, grid.
+HOST = spinquestgpvm01.fnal.gov
+/seaquest/users/mhossain/delete/AnaSimpleTree/macro/scratch/test01/1
+total 7.0K
+-rw-r--r-- 1 mhossain 500  13K Aug 18 23:50 Fun4Sim.C
+-rw-r--r-- 1 mhossain 500  449 Aug 18 23:50 disp_geom.C
+-rwxr-xr-x 1 mhossain 500 1.3K Aug 18 23:50 gridrun.sh
+drwxr-xr-x 2 mhossain 500    3 Aug 19 01:15 input
+-rw-r--r-- 1 mhossain 500  346 Aug 19 01:15 log_gridrun.txt
+drwxr-xr-t 2 mhossain 500    3 Aug 19 01:15 out
+-rw-r--r-- 1 mhossain 500  114 Aug 19 01:15 out.txt
+-rw-r--r-- 1 mhossain 500  876 Aug 18 23:50 phpythia8_DY.cfg
+-rw-r--r-- 1 mhossain 500 1.4K Aug 18 23:50 phpythia8_Jpsi.cfg
+-rw-r--r-- 1 mhossain 500 1.4K Aug 18 23:50 phpythia8_Jpsi_direct.cfg
+-rw-r--r-- 1 mhossain 500 1.6K Aug 18 23:50 phpythia8_psip.cfg
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run3_sim.opts
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run6_sim.opts
+-rw-r--r-- 1 mhossain 500 4.2K Aug 18 23:50 run7_sim.opts
