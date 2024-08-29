@@ -10,14 +10,12 @@ int run(const char* fn_udst="/data2/e1039/dst/run_006178/run_006178_spill_001951
     in->fileopen(fn_udst);
 
     Fun4AllUniversalOutputManager* tree = new Fun4AllUniversalOutputManager();
-    tree->SetFileName("out_kLZMA_1_64kb_flush1000_struct.root");
+    tree->SetFileName("out_kLZMA_5_64kb_struct.root");
     tree->SetTreeName("tree");
     se->registerOutputManager(tree);
 
     se->run();
     se->End();
-
-    // Do not delete se; // Removing manual deletion of singleton
 
     return 0;
 }

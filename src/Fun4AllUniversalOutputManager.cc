@@ -50,7 +50,7 @@ if (!m_file || m_file->IsZombie()) {
 timer.Start();
 m_file->SetCompressionAlgorithm(ROOT::kLZMA);
 //m_file->SetCompressionAlgorithm(ROOT::kZLIB);
-m_file->SetCompressionLevel(1);
+m_file->SetCompressionLevel(5);
 
 m_tree = new TTree(m_tree_name.c_str(), "Tree for storing events");
 if (!m_tree) {
