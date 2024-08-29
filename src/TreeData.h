@@ -3,7 +3,6 @@
 #include <phool/PHObject.h>
 
 struct HitData {
-  int    hit_id;         
   int    detector_id;    
   int    element_id;     
   double tdc_time;       

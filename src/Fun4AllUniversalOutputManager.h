@@ -6,29 +6,35 @@
 #include <vector>
 #include <map>
 #include "TreeData.h"
+#include <TStopwatch.h>
 
 class TFile;
 class TTree;
 class PHCompositeNode;
-class SRawEvent;
 class SQEvent;
 class SQSpillMap;
 class SQHitVector;
-class DbSvc;
 
 
 class Fun4AllUniversalOutputManager : public Fun4AllOutputManager {
 public:
+    int event_count =0;
+    bool fileOpened; 
     Fun4AllUniversalOutputManager(const std::string &myname = "UNIVERSALOUT");
     virtual ~Fun4AllUniversalOutputManager();
 
     void SetTreeName(const std::string& name) { m_tree_name = name; }
     void SetFileName(const std::string& name) { m_file_name = name; }
     virtual int Write(PHCompositeNode* startNode);
+    void SetCompression(const std::string& algo, int level);
+    static void SetFileCompression(TFile* file, const std::string& algo, int level);
+    TStopwatch timer;
+
 
 protected:
-    void OpenFile();
+    //void OpenFile();
     void CloseFile();
+    void OpenFile(PHCompositeNode* startNode);
 
 private:
     std::string m_tree_name;
@@ -41,7 +47,6 @@ private:
     SQEvent* m_evt;
     SQSpillMap* m_sp_map;
     SQHitVector* m_hit_vec;
-    SRawEvent* m_sraw;
 
   int trig_bits;
   int RunID;
@@ -50,6 +55,9 @@ private:
   int RFID;
   int TurnID;
   int Intensity[33];
+  int m_compression_level = 0; 
+
+  std::string m_compression_algo = "LZMA";
 
     HitList list_hit;
 };

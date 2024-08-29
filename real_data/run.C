@@ -1,7 +1,8 @@
 
  R__LOAD_LIBRARY(libfun4all_universal_output_manager)
 
-int run(const char* fn_udst="/data2/e1039/dst/run_004621_spin.root") {
+int run(const char* fn_udst="/data2/e1039/dst/run_006178/run_006178_spill_001951171_spin.root") {
+//int run(const char* fn_udst="/data2/e1039/dst/run_004621_spin.root") {
     Fun4AllServer* se = Fun4AllServer::instance();
     // se->Verbosity(1);  // Optionally set verbosity level if needed
     Fun4AllInputManager *in = new Fun4AllDstInputManager("DUMMY");
@@ -9,7 +10,7 @@ int run(const char* fn_udst="/data2/e1039/dst/run_004621_spin.root") {
     in->fileopen(fn_udst);
 
     Fun4AllUniversalOutputManager* tree = new Fun4AllUniversalOutputManager();
-    tree->SetFileName("out.root");
+    tree->SetFileName("out_kLZMA_1_64kb_flush1000_struct.root");
     tree->SetTreeName("tree");
     se->registerOutputManager(tree);
 
