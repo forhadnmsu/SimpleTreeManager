@@ -23,7 +23,10 @@ Fun4AllUniversalOutputManager::Fun4AllUniversalOutputManager(const std::string &
     m_file_name("output.root"),
     m_evt(0),
     m_sp_map(0),
-    m_hit_vec(0)
+    m_hit_vec(0),
+    m_basket_size(32000),  
+    m_auto_flush(1000),    
+    m_compression_level(1) 
 {
  ;
 }
@@ -50,9 +53,11 @@ if (!m_file || m_file->IsZombie()) {
 timer.Start();
 m_file->SetCompressionAlgorithm(ROOT::kLZMA);
 //m_file->SetCompressionAlgorithm(ROOT::kZLIB);
-m_file->SetCompressionLevel(5);
+m_file->SetCompressionLevel(m_compression_level);
 
 m_tree = new TTree(m_tree_name.c_str(), "Tree for storing events");
+m_tree->SetAutoFlush(0);
+
 if (!m_tree) {
     std::cerr << "Error: Could not create tree " << m_tree_name << std::endl;
     exit(1);
@@ -69,7 +74,10 @@ if (!m_tree) {
     m_tree->Branch("Intensity", Intensity, "Intensity[33]/I");
     m_tree->Branch("trig_bits", &trig_bits, "trig_bits/I");
     m_tree->Branch("list_hit", &list_hit);
-   m_tree->SetBasketSize("*", 64000);  // 64 KB
+    m_tree->SetAutoFlush(m_auto_flush);
+    m_tree->SetBasketSize("*", m_basket_size);
+
+
 if (!m_evt) {
         m_evt = findNode::getClass<SQEvent>(startNode, "SQEvent");
         m_hit_vec = findNode::getClass<SQHitVector>(startNode, "SQHitVector");

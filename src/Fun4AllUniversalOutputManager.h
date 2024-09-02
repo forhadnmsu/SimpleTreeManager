@@ -28,6 +28,10 @@ public:
     virtual int Write(PHCompositeNode* startNode);
     void SetCompression(const std::string& algo, int level);
     static void SetFileCompression(TFile* file, const std::string& algo, int level);
+   
+    void SetBasketSize(int size) { m_basket_size = size; }
+    void SetAutoFlush(int flush) { m_auto_flush = flush; }
+    void SetCompressionLevel(int level) { m_compression_level = level; }
     TStopwatch timer;
 
 
@@ -55,7 +59,9 @@ private:
   int RFID;
   int TurnID;
   int Intensity[33];
-  int m_compression_level = 0; 
+  int m_basket_size;
+  int m_auto_flush;
+  int m_compression_level;
 
   std::string m_compression_algo = "LZMA";
 
