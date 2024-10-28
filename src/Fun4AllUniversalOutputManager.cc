@@ -107,7 +107,7 @@ int Fun4AllUniversalOutputManager::Write(PHCompositeNode* startNode) {
 	if(m_mc_mode){
 		cout << "process id: "<< mi_evt_true->get_process_id() << endl;
   	}
-   
+list_hit.clear();   
   if (m_hit_vec) {
             for (int ihit = 0; ihit < m_hit_vec->size(); ++ihit) {
                 SQHit* hit =m_hit_vec->at(ihit);
