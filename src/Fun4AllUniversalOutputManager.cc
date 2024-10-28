@@ -9,6 +9,7 @@
 #include <phool/getClass.h>
 #include <phool/PHNode.h>
 #include <phool/PHNodeIOManager.h>
+#include <interface_main/SQMCEvent.h>
 #include <interface_main/SQEvent.h>
 #include <interface_main/SQSpillMap.h>
 #include <interface_main/SQHitVector.h>
@@ -26,7 +27,8 @@ Fun4AllUniversalOutputManager::Fun4AllUniversalOutputManager(const std::string &
     m_hit_vec(0),
     m_basket_size(32000),  
     m_auto_flush(1000),    
-    m_compression_level(1) 
+    m_compression_level(1), 
+    m_mc_mode(false)
 {
  ;
 }
@@ -65,20 +67,17 @@ if (!m_tree) {
     std::cout <<  m_tree->GetName() << " created successfully." << std::endl;
 }
 
-
-    m_tree->Branch("RunID", &RunID, "RunID/I");
-    m_tree->Branch("SpillID", &SpillID, "SpillID/I");
-    m_tree->Branch("EventID", &EventID, "EventID/I");
-    m_tree->Branch("RFID", &RFID, "RFID/I");
-    m_tree->Branch("TurnID", &TurnID, "TurnID/I");
-    m_tree->Branch("Intensity", Intensity, "Intensity[33]/I");
-    m_tree->Branch("trig_bits", &trig_bits, "trig_bits/I");
+    m_tree->Branch("evt", &evt);
     m_tree->Branch("list_hit", &list_hit);
     m_tree->SetAutoFlush(m_auto_flush);
     m_tree->SetBasketSize("*", m_basket_size);
 
-
 if (!m_evt) {
+
+	if(m_mc_mode){
+	   mi_evt_true = findNode::getClass<SQMCEvent>(startNode, "SQMCEvent");
+	}
+
         m_evt = findNode::getClass<SQEvent>(startNode, "SQEvent");
         m_hit_vec = findNode::getClass<SQHitVector>(startNode, "SQHitVector");
         //m_sp_map = findNode::getClass<SQSpillMap>(startNode, "SQSpillMap");
@@ -98,19 +97,18 @@ int Fun4AllUniversalOutputManager::Write(PHCompositeNode* startNode) {
         OpenFile(startNode);  // Call OpenFile() if the file or tree is not initialized
     }
 	//using SQEvent
-	RunID =  m_evt->get_run_id(); // SQRun class can be used here 
-	SpillID= m_evt->get_spill_id();
-	RFID = m_evt->get_qie_rf_id();
-	EventID= m_evt->get_event_id();
-	TurnID = m_evt->get_qie_turn_id ();
-	trig_bits= m_evt->get_trigger(); 
+	evt.run_id = m_evt->get_run_id();
+	evt.spill_id = m_evt->get_spill_id();
+	evt.event_id = m_evt->get_event_id();
+	evt.rf_id = m_evt->get_qie_turn_id ();
+	evt.trig_bits= m_evt->get_trigger();
+	int process_id=-999;
 
-	for (int i = -16; i <= 16; ++i) {
-    		//cout << "intensity: " << m_evt->get_qie_rf_intensity(i) << endl;
-		Intensity[i+16]= m_evt->get_qie_rf_intensity(i);
-	}
-     list_hit.clear();
-     if (m_hit_vec) {
+	if(m_mc_mode){
+		cout << "process id: "<< mi_evt_true->get_process_id() << endl;
+  	}
+   
+  if (m_hit_vec) {
             for (int ihit = 0; ihit < m_hit_vec->size(); ++ihit) {
                 SQHit* hit =m_hit_vec->at(ihit);
 		    HitData ht;
@@ -119,8 +117,20 @@ int Fun4AllUniversalOutputManager::Write(PHCompositeNode* startNode) {
                     ht.tdc_time = hit->get_tdc_time();
                     ht.drift_distance =hit-> get_drift_distance();
                     list_hit.push_back(ht);
+/*
+		   // Hit matrix
+		  int ele_id = hit->get_detector_id();  
+    		  int det_id = hit->get_element_id();   
+    		  double drift_dis = hit-> get_drift_distance(); 
+		    		  
+    		 if (0 <= ele_id && ele_id < max_elements && 0 <= det_id && det_id < max_detectors) {
+        		matrix_hit[ele_id][det_id] = drift_dis; 
+        		matrix_mc[ele_id][det_id] = ; 
+    	  	 }
+*/
         }
     }
+
     m_tree->Fill();
     return 0;
 }

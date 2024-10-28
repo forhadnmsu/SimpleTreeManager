@@ -28,13 +28,13 @@ int run(const char* fn_udst="/data2/e1039/dst/run_006178/run_006178_spill_001951
 
 
     int compressionLevel = 1;  // Compression level (0-9)
-    int basketSize = 32000;  // Basket size in bytes
-    int autoFlush = 0;  // Auto flush size
+    int basketSize = 64000;  // Basket size in bytes
+    int autoFlush = 1000;  // Auto flush size
 
 
     Fun4AllUniversalOutputManager* tree = new Fun4AllUniversalOutputManager();
     tree->SetTreeName("tree");
-    tree->SetFileName(Form("data/out_kLZMA_%d_%dkb_flush%d.root",  compressionLevel, basketSize / 1000, autoFlush));
+    tree->SetFileName(Form("data/out_struct_kLZMA_%d_%dkb_flush%d.root",  compressionLevel, basketSize / 1000, autoFlush));
     //tree->SetDimuonMode(true);
     tree->SetCompressionLevel(compressionLevel);
     tree->SetBasketSize(basketSize);

@@ -2,4 +2,6 @@
 *.png
 build/
 inst/
-
+real_data/
+macro/
+MC/

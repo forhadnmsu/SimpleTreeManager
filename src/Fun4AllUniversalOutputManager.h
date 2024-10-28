@@ -14,6 +14,7 @@ class PHCompositeNode;
 class SQEvent;
 class SQSpillMap;
 class SQHitVector;
+class SQMCEvent;
 
 
 class Fun4AllUniversalOutputManager : public Fun4AllOutputManager {
@@ -32,6 +33,8 @@ public:
     void SetBasketSize(int size) { m_basket_size = size; }
     void SetAutoFlush(int flush) { m_auto_flush = flush; }
     void SetCompressionLevel(int level) { m_compression_level = level; }
+    void SetMCMode(bool enable) { m_mc_mode = enable; }
+
     TStopwatch timer;
 
 
@@ -47,11 +50,12 @@ private:
    
     TFile* m_file;
     TTree* m_tree;
-
+   
+    SQMCEvent* mi_evt_true;
     SQEvent* m_evt;
     SQSpillMap* m_sp_map;
     SQHitVector* m_hit_vec;
-
+    
   int trig_bits;
   int RunID;
   int SpillID;
@@ -63,9 +67,13 @@ private:
   int m_auto_flush;
   int m_compression_level;
 
+
+  bool m_mc_mode;
+
   std::string m_compression_algo = "LZMA";
 
-    HitList list_hit;
+  HitList list_hit;
+  EventData  evt;
 };
 
 #endif /* _FUN4ALL_UNIVERSAL_OUTPUT_MANAGER__H_ */
